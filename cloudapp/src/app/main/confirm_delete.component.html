@@ -1,0 +1,11 @@
+<div class="confirm">
+    <h2 mat-dialog-title>{{ 'Translate.confirm_del.title' | translate }}</h2>
+    <mat-dialog-content>
+        <p>{{ 'Translate.confirm_del.msg' | translate }}</p>
+        <img src={{data.currentCover}}>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-flat-button color = "primary" [matDialogClose] = "false" cdkFocusInitial>{{ 'Translate.no' | translate }}</button>
+        <button mat-flat-button color = "secondary" [matDialogClose] = "true">{{ 'Translate.yes' | translate }}</button>    
+    </mat-dialog-actions>
+    </div>

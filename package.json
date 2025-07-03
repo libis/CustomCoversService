@@ -1,0 +1,46 @@
+{
+  "name": "my-exl-cloudapp",
+  "version": "1.0.0",
+  "description": "",
+  "license": "BSD-3-Clause",
+  "private": true,
+  "scripts": {
+    "start": "eca start"
+  },
+  "dependencies": {
+    "@angular/animations": "~18.2.13",
+    "@angular/cdk": "~18.2.13",
+    "@angular/common": "~18.2.13",
+    "@angular/compiler": "~18.2.13",
+    "@angular/core": "~18.2.13",
+    "@angular/forms": "~18.2.13",
+    "@angular/language-service": "~18.2.13",
+    "@angular/material": "~18.2.13",
+    "@angular/platform-browser": "~18.2.13",
+    "@angular/platform-browser-dynamic": "~18.2.13",
+    "@angular/router": "~18.2.13",
+    "@exlibris/exl-cloudapp-angular-lib": "^2.0.2",
+    "@exlibris/exl-cloudapp-base": "^2.0.2",
+    "lodash": "~4.17.21",
+    "rxjs": "~6.5.5",
+    "zone.js": "~0.14.10",
+    "@natlibfi/marc-record-serializers":"~10.1.5"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~18.2.13",
+    "@angular/cli": "~18.2.13",
+    "@angular/compiler-cli": "^18.0.0",
+    "@types/jasmine": "~3.5.0",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^22.14.0",
+    "jasmine-core": "~3.7.1",
+    "jasmine-spec-reporter": "~7.0.0",
+    "karma": "~6.3.2",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage-istanbul-reporter": "~3.0.3",
+    "karma-jasmine": "~4.0.1",
+    "karma-jasmine-html-reporter": "~1.5.4",
+    "postcss": "^8.3.11",
+    "typescript": "^5.5.4"
+  }
+}

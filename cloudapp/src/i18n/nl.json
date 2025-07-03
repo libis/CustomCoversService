@@ -1,0 +1,30 @@
+{
+    "Translate": {
+        "welcome": "Welkom bij de custom covers service",
+        "mms_id": "MMS ID",
+        "by": "Door",
+        "rec_reset": "Nieuw",
+        "new_search_msg": "Om een nieuwe cover upload te starten, geef het MMS ID van het record in:",
+        "start": "Start",
+        "CZ_unsupported": "Cover upload is (momenteel) niet ondersteund voor CZ records",
+        "add_cover": {
+            "title": "Upload cover",
+            "msg": "Klik om een coverafbeelding te selecteren:"
+        },
+        "upload": "Uploaden",
+        "upload_reset": "Annuleren",
+        "available_covers": "Beschikbare covers:",
+        "no_covers": "Er zijn (nog) geen covers beschikbaar voor dit record",
+        "confirm_del": {
+            "title": "Bevestig verwijdering cover",
+            "msg": "Weet u zeker dat u deze cover wilt verwijderen?"
+        },
+        "confirm_repl": {
+            "title": "Bevestig vervanging cover",
+            "msg": "Er is al een cover geregistreerd voor dit record. Bent u zeker dat u deze cover wilt vervangen?"
+        },
+        "yes": "Ja",
+        "no": "Nee",
+        "close": "Sluiten"
+    }
+}

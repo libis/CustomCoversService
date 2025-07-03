@@ -1,0 +1,4060 @@
+// 
+@use "sass:map";
+@use "@angular/material" as mat;
+
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+
+/* Document
+   ========================================================================== */
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+
+/**
+ * Remove the margin in all browsers.
+ */
+
+body {
+  margin: 0;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+
+main {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+
+a {
+  background-color: transparent;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+
+img {
+  border-style: none;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+button,
+input { /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+
+button,
+select { /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  appearance: button;
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+  appearance: textfield;
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+
+details {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+
+summary {
+  display: list-item;
+}
+
+/* Misc
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 10+.
+ */
+
+template {
+  display: none;
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+
+[hidden] {
+  display: none;
+}
+
+
+@import url("//fonts.googleapis.com/icon?family=Material+Icons");
+@import url("//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+[class^="uxf-"],
+[class*=" uxf-"],
+.uxf-icon {
+	font-family: "UX-Framework";
+	color: #4164a4;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	position: relative;
+	line-height: 1;
+	top: 1px;
+	display: inline-block;
+
+	&:empty {
+		width: 1em;
+	}
+
+	// Better Font Rendering
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.btn {
+	[class^="uxf-"],
+	[class*=" uxf-"],
+	.uxf-icon {
+		top: 0px;
+	}
+}
+
+.uxf-zoom-in:before {
+	content: "\61";
+}
+.uxf-zoom-out:before {
+	content: "\62";
+}
+.uxf-alert:before {
+	content: "\63";
+}
+.uxf-graduation:before {
+	content: "\64";
+}
+.uxf-newspaper:before {
+	content: "\65";
+}
+.uxf-list:before {
+	content: "\66";
+}
+.uxf-menu:before {
+	content: "\67";
+}
+.uxf-book:before {
+	content: "\68";
+}
+.uxf-doc:before {
+	content: "\69";
+}
+.uxf-doc-inverse:before {
+	content: "\6a";
+}
+.uxf-download:before {
+	content: "\6b";
+}
+.uxf-close-square:before {
+	content: "\6c";
+}
+.uxf-close-circle:before {
+	content: "\6d";
+}
+.uxf-close:before {
+	content: "\6e";
+}
+.uxf-close-tag:before {
+	content: "\6f";
+}
+.uxf-folder:before {
+	content: "\70";
+}
+.uxf-share:before {
+	content: "\71";
+}
+.uxf-bookmarks:before {
+	content: "\72";
+}
+.uxf-bookmark:before {
+	content: "\73";
+}
+.uxf-attach:before {
+	content: "\74";
+}
+.uxf-arrows-rotate:before {
+	content: "\75";
+}
+.uxf-arrow-combo:before {
+	content: "\76";
+}
+.uxf-attention:before {
+	content: "\77";
+}
+.uxf-box:before {
+	content: "\78";
+}
+.uxf-book-alt:before {
+	content: "\79";
+}
+.uxf-disabled:before {
+	content: "\7a";
+}
+.uxf-check:before {
+	content: "\41";
+}
+.uxf-chart-line:before {
+	content: "\42";
+}
+.uxf-chart-pie:before {
+	content: "\43";
+}
+.uxf-chart-bar:before {
+	content: "\44";
+}
+.uxf-chart-area:before {
+	content: "\45";
+}
+.uxf-code:before {
+	content: "\46";
+}
+.uxf-settings:before {
+	content: "\47";
+}
+.uxf-comment:before {
+	content: "\48";
+}
+.uxf-database:before {
+	content: "\49";
+}
+.uxf-down-caret:before {
+	content: "\4a";
+}
+.uxf-down-open:before {
+	content: "\4b";
+}
+.uxf-down-open-large:before {
+	content: "\4c";
+}
+.uxf-down-open-mini:before {
+	content: "\4d";
+}
+.uxf-down-long:before {
+	content: "\4e";
+}
+.uxf-export:before {
+	content: "\4f";
+}
+.uxf-save:before {
+	content: "\50";
+}
+.uxf-flag:before {
+	content: "\51";
+}
+.uxf-flash:before {
+	content: "\52";
+}
+.uxf-heart:before {
+	content: "\53";
+}
+.uxf-heart-empty:before {
+	content: "\54";
+}
+.uxf-help:before {
+	content: "\55";
+}
+.uxf-help-circle:before {
+	content: "\56";
+}
+.uxf-grid-small:before {
+	content: "\57";
+}
+.uxf-help-buoy:before {
+	content: "\58";
+}
+.uxf-level-up:before {
+	content: "\59";
+}
+.uxf-left-down:before {
+	content: "\5a";
+}
+.uxf-left-long:before {
+	content: "\30";
+}
+.uxf-left-open-mini:before {
+	content: "\31";
+}
+.uxf-left-open-large:before {
+	content: "\32";
+}
+.uxf-left-caret:before {
+	content: "\33";
+}
+.uxf-left-open:before {
+	content: "\34";
+}
+.uxf-left-bold:before {
+	content: "\35";
+}
+.uxf-left:before {
+	content: "\36";
+}
+.uxf-megaphone:before {
+	content: "\37";
+}
+.uxf-map:before {
+	content: "\38";
+}
+.uxf-mail:before {
+	content: "\39";
+}
+.uxf-lock:before {
+	content: "\21";
+}
+.uxf-unlock:before {
+	content: "\22";
+}
+.uxf-login:before {
+	content: "\23";
+}
+.uxf-logout:before {
+	content: "\24";
+}
+.uxf-link:before {
+	content: "\25";
+}
+.uxf-location:before {
+	content: "\26";
+}
+.uxf-minus:before {
+	content: "\27";
+}
+.uxf-minus-circle:before {
+	content: "\28";
+}
+.uxf-reply-all:before {
+	content: "\29";
+}
+.uxf-reply:before {
+	content: "\2a";
+}
+.uxf-right-open-mini:before {
+	content: "\2b";
+}
+.uxf-right-caret:before {
+	content: "\2c";
+}
+.uxf-right-open:before {
+	content: "\2d";
+}
+.uxf-right-open-large:before {
+	content: "\2e";
+}
+.uxf-right-bold:before {
+	content: "\2f";
+}
+.uxf-right:before {
+	content: "\3a";
+}
+.uxf-search:before {
+	content: "\3b";
+}
+.uxf-up-caret:before {
+	content: "\3c";
+}
+.uxf-up-open:before {
+	content: "\3d";
+}
+.uxf-up-open-large:before {
+	content: "\3e";
+}
+.uxf-up-open-mini:before {
+	content: "\3f";
+}
+.uxf-up-long:before {
+	content: "\40";
+}
+.uxf-upload-cloud:before {
+	content: "\5b";
+}
+.uxf-upload:before {
+	content: "\5d";
+}
+.uxf-vcard:before {
+	content: "\5e";
+}
+.uxf-users:before {
+	content: "\5f";
+}
+.uxf-user-add:before {
+	content: "\60";
+}
+.uxf-user:before {
+	content: "\7b";
+}
+.uxf-up-bold:before {
+	content: "\7c";
+}
+.uxf-up:before {
+	content: "\7d";
+}
+.uxf-tools:before {
+	content: "\7e";
+}
+.uxf-suitcase:before {
+	content: "\5c";
+}
+.uxf-stop:before {
+	content: "\e000";
+}
+.uxf-star-empty:before {
+	content: "\e001";
+}
+.uxf-star:before {
+	content: "\e002";
+}
+.uxf-right-long:before {
+	content: "\e003";
+}
+.uxf-resize-small:before {
+	content: "\e004";
+}
+.uxf-resize-large:before {
+	content: "\e005";
+}
+.uxf-record:before {
+	content: "\e006";
+}
+.uxf-plus-circle:before {
+	content: "\e007";
+}
+.uxf-plus:before {
+	content: "\e008";
+}
+.uxf-play:before {
+	content: "\e009";
+}
+.uxf-quote:before {
+	content: "\e00a";
+}
+.uxf-publish:before {
+	content: "\e00b";
+}
+.uxf-print:before {
+	content: "\e00c";
+}
+.uxf-popup:before {
+	content: "\e00d";
+}
+.uxf-pencil:before {
+	content: "\e00e";
+}
+.uxf-monitor:before {
+	content: "\e00f";
+}
+.uxf-mobile:before {
+	content: "\e010";
+}
+.uxf-loop:before {
+	content: "\e011";
+}
+.uxf-keyboard:before {
+	content: "\e012";
+}
+.uxf-bulb:before {
+	content: "\e013";
+}
+.uxf-key:before {
+	content: "\e014";
+}
+.uxf-home:before {
+	content: "\e015";
+}
+.uxf-info:before {
+	content: "\e016";
+}
+.uxf-info-circle:before {
+	content: "\e017";
+}
+.uxf-hourglass:before {
+	content: "\e018";
+}
+.uxf-inbox:before {
+	content: "\e019";
+}
+.uxf-forward:before {
+	content: "\e01a";
+}
+.uxf-rewind:before {
+	content: "\e01b";
+}
+.uxf-fast-forward:before {
+	content: "\e01c";
+}
+.uxf-guage:before {
+	content: "\e01d";
+}
+.uxf-infinite:before {
+	content: "\e01e";
+}
+.uxf-dot-three:before {
+	content: "\e01f";
+}
+.uxf-dot-two:before {
+	content: "\e020";
+}
+.uxf-dot-one:before {
+	content: "\e021";
+}
+.uxf-down:before {
+	content: "\e022";
+}
+.uxf-down-black:before {
+	content: "\e023";
+}
+.uxf-direction:before {
+	content: "\e024";
+}
+.uxf-clockwise:before {
+	content: "\e025";
+}
+.uxf-compass:before {
+	content: "\e026";
+}
+.uxf-drive:before {
+	content: "\e027";
+}
+.uxf-counter-clockwise:before {
+	content: "\e028";
+}
+.uxf-clipboard:before {
+	content: "\e029";
+}
+.uxf-clock:before {
+	content: "\e02a";
+}
+.uxf-chat:before {
+	content: "\e02b";
+}
+.uxf-cal:before {
+	content: "\e02c";
+}
+.uxf-back:before {
+	content: "\e02d";
+}
+.uxf-sign:before {
+	content: "\e02e";
+}
+.uxf-cloud:before {
+	content: "\e02f";
+}
+.uxf-cloud-lightning:before {
+	content: "\e030";
+}
+.uxf-tag:before {
+	content: "\e031";
+}
+.uxf-tags:before {
+	content: "\e032";
+}
+.uxf-align-center:before {
+	content: "\e033";
+}
+.uxf-align-justify:before {
+	content: "\e034";
+}
+.uxf-align-left:before {
+	content: "\e035";
+}
+.uxf-align-right:before {
+	content: "\e036";
+}
+.uxf-background-color:before {
+	content: "\e037";
+}
+.uxf-bold:before {
+	content: "\e038";
+}
+.uxf-italic:before {
+	content: "\e039";
+}
+.uxf-text-color:before {
+	content: "\e03a";
+}
+.uxf-underline:before {
+	content: "\e03b";
+}
+.uxf-pin:before {
+	content: "\e03c";
+}
+.uxf-rss:before {
+	content: "\e03d";
+}
+.uxf-external-link:before {
+	content: "\e03e";
+}
+.uxf-facebook-square:before {
+	content: "\e03f";
+}
+.uxf-facebook-circle:before {
+	content: "\e040";
+}
+.uxf-facebook:before {
+	content: "\e041";
+}
+.uxf-twitter:before {
+	content: "\e042";
+}
+.uxf-twitter-circle:before {
+	content: "\e043";
+}
+.uxf-linkedin:before {
+	content: "\e044";
+}
+.uxf-linkedin-circle:before {
+	content: "\e045";
+}
+.uxf-phone:before {
+	content: "\e046";
+}
+.uxf-basket:before {
+	content: "\e047";
+}
+.uxf-globe:before {
+	content: "\e048";
+}
+.uxf-music:before {
+	content: "\e049";
+}
+.uxf-note:before {
+	content: "\e04a";
+}
+.uxf-note-alt:before {
+	content: "\e04b";
+}
+.uxf-wrench:before {
+	content: "\e04c";
+}
+.uxf-filter:before {
+	content: "\e04d";
+}
+.uxf-trash:before {
+	content: "\e04e";
+}
+.uxf-signal:before {
+	content: "\e04f";
+}
+.uxf-shuffle:before {
+	content: "\e050";
+}
+.uxf-trophy:before {
+	content: "\e051";
+}
+.uxf-switch:before {
+	content: "\e052";
+}
+.uxf-instagram:before {
+	content: "\e053";
+}
+.uxf-pinterest-circle:before {
+	content: "\e054";
+}
+.uxf-pinterest:before {
+	content: "\e055";
+}
+.uxf-archive:before {
+	content: "\e056";
+}
+.uxf-back-in-time:before {
+	content: "\e057";
+}
+.uxf-camera:before {
+	content: "\e058";
+}
+.uxf-gplus:before {
+	content: "\e059";
+}
+.uxf-gplus-circle:before {
+	content: "\e05a";
+}
+.uxf-mic:before {
+	content: "\e05b";
+}
+.uxf-pause:before {
+	content: "\e05c";
+}
+.uxf-pictures:before {
+	content: "\e05d";
+}
+.uxf-thumbs-down:before {
+	content: "\e05e";
+}
+.uxf-thumbs-up:before {
+	content: "\e05f";
+}
+.uxf-grid-alt:before {
+	content: "\e060";
+}
+.uxf-grid:before {
+	content: "\e061";
+}
+.uxf-video:before {
+	content: "\e062";
+}
+.uxf-video-alt:before {
+	content: "\e063";
+}
+.uxf-film:before {
+	content: "\e064";
+}
+.uxf-doc-delete:before {
+	content: "\e065";
+}
+.uxf-doc-add:before {
+	content: "\e066";
+}
+.uxf-alt-inverse:before {
+	content: "\e067";
+}
+.uxf-doc-blank:before {
+	content: "\e068";
+}
+.uxf-docs:before {
+	content: "\e069";
+}
+.uxf-blank-inverse:before {
+	content: "\e06a";
+}
+.uxf-doc-alt:before {
+	content: "\e06b";
+}
+.uxf-doc-pdf:before {
+	content: "\e06c";
+}
+.uxf-watch:before {
+	content: "\e06d";
+}
+.uxf-folder-add:before {
+	content: "\e06e";
+}
+.uxf-folder-delete:before {
+	content: "\e06f";
+}
+.uxf-to-start:before {
+	content: "\e070";
+}
+.uxf-to-end:before {
+	content: "\e071";
+}
+
+$icon-font-path: "https://apps01.ext.exlibrisgroup.com/pq-uikit/fonts/";
+@font-face {
+	font-family: "UX-Framework";
+	src: url("#{$icon-font-path}UX-Framework.eot") format("embedded-opentype"),
+		url("#{$icon-font-path}UX-Framework.woff") format("woff"),
+		url("#{$icon-font-path}UX-Framework.ttf") format("truetype"),
+		url("#{$icon-font-path}UX-Framework.svg") format("svg");
+
+	font-weight: normal;
+	font-style: normal;
+}
+
+// This file was generated by running 'ng generate @angular/material:m3-theme'.
+// Proceed with caution if making changes to this file.
+
+// Note: Color palettes are generated from primary: #0e7bba
+$_palettes: (
+  primary: (
+    0: #000000,
+    10: #001d32,
+    20: #003352,
+    25: #003f63,
+    30: #004b74,
+    35: #005786,
+    40: #006399,
+    50: #147dbc,
+    60: #3f97d8,
+    70: #5eb2f4,
+    80: #94ccff,
+    90: #cde5ff,
+    95: #e7f2ff,
+    98: #f7f9ff,
+    99: #fcfcff,
+    100: #ffffff,
+  ),
+  secondary: (
+    0: #000000,
+    10: #001d32,
+    20: #14334a,
+    25: #213e56,
+    30: #2d4962,
+    35: #39556e,
+    40: #45617a,
+    50: #5e7a94,
+    60: #7894af,
+    70: #92aecb,
+    80: #adcae7,
+    90: #cde5ff,
+    95: #e7f2ff,
+    98: #f7f9ff,
+    99: #fcfcff,
+    100: #ffffff,
+  ),
+  tertiary: (
+    0: #000000,
+    10: #320047,
+    20: #4c1564,
+    25: #592270,
+    30: #652e7c,
+    35: #723b89,
+    40: #7f4796,
+    50: #9a60b1,
+    60: #b679cd,
+    70: #d294e9,
+    80: #ebb2ff,
+    90: #f8d8ff,
+    95: #feebff,
+    98: #fff7fb,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  neutral: (
+    0: #000000,
+    10: #181c20,
+    20: #2d3135,
+    25: #383c40,
+    30: #43474c,
+    35: #4f5357,
+    40: #5b5f63,
+    50: #74777c,
+    60: #8e9196,
+    70: #a8abb1,
+    80: #c4c7cc,
+    90: #e0e2e8,
+    95: #eef1f6,
+    98: #f7f9ff,
+    99: #fcfcff,
+    100: #ffffff,
+    4: #0b0f12,
+    6: #101418,
+    12: #1c2024,
+    17: #272a2f,
+    22: #31353a,
+    24: #36393e,
+    87: #d7dae0,
+    92: #e6e8ee,
+    94: #ebeef4,
+    96: #f1f4f9,
+  ),
+  neutral-variant: (
+    0: #000000,
+    10: #151c24,
+    20: #293139,
+    25: #343c44,
+    30: #404850,
+    35: #4b535c,
+    40: #575f68,
+    50: #707881,
+    60: #8a919b,
+    70: #a4acb6,
+    80: #bfc7d1,
+    90: #dce3ee,
+    95: #eaf1fc,
+    98: #f7f9ff,
+    99: #fcfcff,
+    100: #ffffff,
+  ),
+  error: (
+    0: #000000,
+    10: #410002,
+    20: #690005,
+    25: #7e0007,
+    30: #93000a,
+    35: #a80710,
+    40: #ba1a1a,
+    50: #de3730,
+    60: #ff5449,
+    70: #ff897d,
+    80: #ffb4ab,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+);
+
+$_rest: (
+  secondary: map.get($_palettes, secondary),
+  neutral: map.get($_palettes, neutral),
+  neutral-variant: map.get($_palettes,  neutral-variant),
+  error: map.get($_palettes, error),
+);
+$_primary: map.merge(map.get($_palettes, primary), $_rest);
+$_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
+
+$blue-light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+$blue-dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+// This file was generated by running 'ng generate @angular/material:m3-theme'.
+// Proceed with caution if making changes to this file.
+
+// Note: Color palettes are generated from primary: #534741
+$_palettes: (
+  primary: (
+    0: #000000,
+    10: #231a15,
+    20: #392e29,
+    25: #443933,
+    30: #50443e,
+    35: #5c504a,
+    40: #695c55,
+    50: #82746d,
+    60: #9d8e86,
+    70: #b8a8a0,
+    80: #d4c3bb,
+    90: #f1dfd7,
+    95: #ffede5,
+    98: #fff8f6,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  secondary: (
+    0: #000000,
+    10: #1f1b18,
+    20: #352f2d,
+    25: #403a37,
+    30: #4c4542,
+    35: #58514e,
+    40: #645d5a,
+    50: #7d7572,
+    60: #988f8b,
+    70: #b3a9a5,
+    80: #cec4c0,
+    90: #ebe0dc,
+    95: #faeeea,
+    98: #fff8f6,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  tertiary: (
+    0: #000000,
+    10: #1e1b13,
+    20: #343027,
+    25: #3f3b32,
+    30: #4a463d,
+    35: #565248,
+    40: #625e53,
+    50: #7c776b,
+    60: #969084,
+    70: #b1ab9e,
+    80: #cdc6b9,
+    90: #e9e2d4,
+    95: #f8f0e2,
+    98: #fff8ef,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  neutral: (
+    0: #000000,
+    10: #1d1b1b,
+    20: #32302f,
+    25: #3d3b3a,
+    30: #494645,
+    35: #545251,
+    40: #615e5d,
+    50: #7a7675,
+    60: #94908f,
+    70: #afaaa9,
+    80: #cac5c4,
+    90: #e7e1e0,
+    95: #f5efee,
+    98: #fef8f6,
+    99: #fffbff,
+    100: #ffffff,
+    4: #0f0e0d,
+    6: #141312,
+    12: #211f1f,
+    17: #2b2a29,
+    22: #363433,
+    24: #3b3938,
+    87: #ded9d7,
+    92: #ece7e5,
+    94: #f2edeb,
+    96: #f8f2f1,
+  ),
+  neutral-variant: (
+    0: #000000,
+    10: #211a17,
+    20: #372f2b,
+    25: #423a35,
+    30: #4e4541,
+    35: #5a504c,
+    40: #665c58,
+    50: #807570,
+    60: #9a8e89,
+    70: #b5a9a3,
+    80: #d1c4be,
+    90: #eee0d9,
+    95: #fdeee7,
+    98: #fff8f6,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  error: (
+    0: #000000,
+    10: #410002,
+    20: #690005,
+    25: #7e0007,
+    30: #93000a,
+    35: #a80710,
+    40: #ba1a1a,
+    50: #de3730,
+    60: #ff5449,
+    70: #ff897d,
+    80: #ffb4ab,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+);
+
+$_rest: (
+  secondary: map.get($_palettes, secondary),
+  neutral: map.get($_palettes, neutral),
+  neutral-variant: map.get($_palettes,  neutral-variant),
+  error: map.get($_palettes, error),
+);
+$_primary: map.merge(map.get($_palettes, primary), $_rest);
+$_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
+
+$brown-light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+$brown-dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+// This file was generated by running 'ng generate @angular/material:m3-theme'.
+// Proceed with caution if making changes to this file.
+
+// Note: Color palettes are generated from primary: #aa0c4f
+$_palettes: (
+  primary: (
+    0: #000000,
+    10: #3f0018,
+    20: #66002c,
+    25: #7a0036,
+    30: #8f0040,
+    35: #a4034b,
+    40: #b51a57,
+    50: #d7386f,
+    60: #f95388,
+    70: #ff85a5,
+    80: #ffb1c2,
+    90: #ffd9e0,
+    95: #ffecee,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  secondary: (
+    0: #000000,
+    10: #3f0018,
+    20: #5d142d,
+    25: #6b1f38,
+    30: #7a2b43,
+    35: #89364e,
+    40: #97425a,
+    50: #b55a72,
+    60: #d4738c,
+    70: #f38ca6,
+    80: #ffb1c2,
+    90: #ffd9e0,
+    95: #ffecee,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  tertiary: (
+    0: #000000,
+    10: #380d00,
+    20: #5c1a00,
+    25: #6e2100,
+    30: #822800,
+    35: #953000,
+    40: #a73a08,
+    50: #c85122,
+    60: #ea6a39,
+    70: #ff8c61,
+    80: #ffb59b,
+    90: #ffdbcf,
+    95: #ffede8,
+    98: #fff8f6,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  neutral: (
+    0: #000000,
+    10: #26181b,
+    20: #3c2c2f,
+    25: #48373a,
+    30: #544246,
+    35: #604e51,
+    40: #6c5a5d,
+    50: #867275,
+    60: #a18b8f,
+    70: #bda6a9,
+    80: #d9c1c4,
+    90: #f6dce0,
+    95: #ffecee,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+    4: #170b0d,
+    6: #1d1013,
+    12: #2a1c1f,
+    17: #352629,
+    22: #413134,
+    24: #453538,
+    87: #edd4d8,
+    92: #fce2e6,
+    94: #ffe8ec,
+    96: #fff0f1,
+  ),
+  neutral-variant: (
+    0: #000000,
+    10: #29161a,
+    20: #402a2f,
+    25: #4c353a,
+    30: #594045,
+    35: #654c51,
+    40: #72585d,
+    50: #8c7075,
+    60: #a7898f,
+    70: #c3a3a9,
+    80: #e0bec4,
+    90: #fddae0,
+    95: #ffecee,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  error: (
+    0: #000000,
+    10: #410002,
+    20: #690005,
+    25: #7e0007,
+    30: #93000a,
+    35: #a80710,
+    40: #ba1a1a,
+    50: #de3730,
+    60: #ff5449,
+    70: #ff897d,
+    80: #ffb4ab,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+);
+
+$_rest: (
+  secondary: map.get($_palettes, secondary),
+  neutral: map.get($_palettes, neutral),
+  neutral-variant: map.get($_palettes,  neutral-variant),
+  error: map.get($_palettes, error),
+);
+$_primary: map.merge(map.get($_palettes, primary), $_rest);
+$_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
+
+$cerise-light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+$cerise-dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+// This file was generated by running 'ng generate @angular/material:m3-theme'.
+// Proceed with caution if making changes to this file.
+
+// Note: Color palettes are generated from primary: #494949
+$_palettes: (
+  primary: (
+    0: #000000,
+    10: #1b1c1c,
+    20: #303030,
+    25: #3b3b3b,
+    30: #474747,
+    35: #525252,
+    40: #5e5e5e,
+    50: #777777,
+    60: #919090,
+    70: #acabab,
+    80: #c8c6c6,
+    90: #e4e2e2,
+    95: #f2f0f0,
+    98: #fbf9f8,
+    99: #fefcfb,
+    100: #ffffff,
+  ),
+  secondary: (
+    0: #000000,
+    10: #1c1b1b,
+    20: #313030,
+    25: #3c3b3b,
+    30: #474646,
+    35: #535252,
+    40: #5f5e5e,
+    50: #787776,
+    60: #929090,
+    70: #adabaa,
+    80: #c8c6c5,
+    90: #e5e2e1,
+    95: #f3f0ef,
+    98: #fcf9f8,
+    99: #fffbfb,
+    100: #ffffff,
+  ),
+  tertiary: (
+    0: #000000,
+    10: #1c1b1c,
+    20: #313030,
+    25: #3c3b3b,
+    30: #474646,
+    35: #535252,
+    40: #5f5e5e,
+    50: #787776,
+    60: #929090,
+    70: #adabaa,
+    80: #c9c6c5,
+    90: #e5e2e1,
+    95: #f3f0ef,
+    98: #fcf8f8,
+    99: #fbfcff,
+    100: #ffffff,
+  ),
+  neutral: (
+    0: #000000,
+    10: #1c1b1b,
+    20: #313030,
+    25: #3c3b3b,
+    30: #484646,
+    35: #535252,
+    40: #605e5e,
+    50: #797776,
+    60: #929090,
+    70: #adaaaa,
+    80: #c9c6c5,
+    90: #e5e2e1,
+    95: #f4f0ef,
+    98: #fcf8f8,
+    99: #f6feff,
+    100: #ffffff,
+    4: #0e0e0e,
+    6: #141313,
+    12: #201f1f,
+    17: #2a2a2a,
+    22: #353434,
+    24: #3a3939,
+    87: #ddd9d8,
+    92: #ebe7e7,
+    94: #f1edec,
+    96: #f7f3f2,
+  ),
+  neutral-variant: (
+    0: #000000,
+    10: #191c1d,
+    20: #2d3132,
+    25: #383c3d,
+    30: #444748,
+    35: #4f5354,
+    40: #5b5f60,
+    50: #747878,
+    60: #8e9192,
+    70: #a9acac,
+    80: #c4c7c7,
+    90: #e0e3e3,
+    95: #eff1f2,
+    98: #f7fafa,
+    99: #fafdfd,
+    100: #ffffff,
+  ),
+  error: (
+    0: #000000,
+    10: #410002,
+    20: #690005,
+    25: #7e0007,
+    30: #93000a,
+    35: #a80710,
+    40: #ba1a1a,
+    50: #de3730,
+    60: #ff5449,
+    70: #ff897d,
+    80: #ffb4ab,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+);
+
+$_rest: (
+  secondary: map.get($_palettes, secondary),
+  neutral: map.get($_palettes, neutral),
+  neutral-variant: map.get($_palettes,  neutral-variant),
+  error: map.get($_palettes, error),
+);
+$_primary: map.merge(map.get($_palettes, primary), $_rest);
+$_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
+
+$charcoal-light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+$charcoal-dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+// This file was generated by running 'ng generate @angular/material:m3-theme'.
+// Proceed with caution if making changes to this file.
+
+// Note: Color palettes are generated from primary: #0b1061
+$_palettes: (
+  primary: (
+    0: #000000,
+    10: #070c5f,
+    20: #212773,
+    25: #2d337e,
+    30: #393f8a,
+    35: #454b97,
+    40: #5157a4,
+    50: #6a70bf,
+    60: #848adb,
+    70: #9ea4f8,
+    80: #bec2ff,
+    90: #e0e0ff,
+    95: #f1efff,
+    98: #fbf8ff,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  secondary: (
+    0: #000000,
+    10: #171935,
+    20: #2c2e4b,
+    25: #373957,
+    30: #424463,
+    35: #4e506f,
+    40: #5a5c7c,
+    50: #737496,
+    60: #8d8eb1,
+    70: #a7a8cc,
+    80: #c3c4e8,
+    90: #e0e0ff,
+    95: #f1efff,
+    98: #fbf8ff,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  tertiary: (
+    0: #000000,
+    10: #330044,
+    20: #4c195d,
+    25: #582569,
+    30: #653175,
+    35: #713d82,
+    40: #7f498f,
+    50: #9962a9,
+    60: #b57bc5,
+    70: #d295e1,
+    80: #efb0fe,
+    90: #fad7ff,
+    95: #ffebff,
+    98: #fff7fb,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  neutral: (
+    0: #000000,
+    10: #1b1b20,
+    20: #303035,
+    25: #3b3b40,
+    30: #47464c,
+    35: #525258,
+    40: #5f5e64,
+    50: #77767d,
+    60: #919096,
+    70: #acaab1,
+    80: #c8c5cc,
+    90: #e4e1e8,
+    95: #f3eff7,
+    98: #fbf8ff,
+    99: #fffbff,
+    100: #ffffff,
+    4: #0e0e13,
+    6: #131318,
+    12: #1f1f24,
+    17: #2a292f,
+    22: #35343a,
+    24: #39393e,
+    87: #dcd9e0,
+    92: #eae7ee,
+    94: #f0edf4,
+    96: #f5f2fa,
+  ),
+  neutral-variant: (
+    0: #000000,
+    10: #1a1b24,
+    20: #2f303a,
+    25: #3a3a45,
+    30: #464651,
+    35: #52515d,
+    40: #5e5d69,
+    50: #777682,
+    60: #908f9c,
+    70: #abaab7,
+    80: #c7c5d2,
+    90: #e3e1ef,
+    95: #f1effd,
+    98: #fbf8ff,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  error: (
+    0: #000000,
+    10: #410002,
+    20: #690005,
+    25: #7e0007,
+    30: #93000a,
+    35: #a80710,
+    40: #ba1a1a,
+    50: #de3730,
+    60: #ff5449,
+    70: #ff897d,
+    80: #ffb4ab,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+);
+
+$_rest: (
+  secondary: map.get($_palettes, secondary),
+  neutral: map.get($_palettes, neutral),
+  neutral-variant: map.get($_palettes,  neutral-variant),
+  error: map.get($_palettes, error),
+);
+$_primary: map.merge(map.get($_palettes, primary), $_rest);
+$_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
+
+$dark_blue-light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+$dark_blue-dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+// This file was generated by running 'ng generate @angular/material:m3-theme'.
+// Proceed with caution if making changes to this file.
+
+// Note: Color palettes are generated from primary: #610b0c
+$_palettes: (
+  primary: (
+    0: #000000,
+    10: #410003,
+    20: #630d0d,
+    25: #731917,
+    30: #832521,
+    35: #93312b,
+    40: #a23c36,
+    50: #c3544c,
+    60: #e36d63,
+    70: #ff897f,
+    80: #ffb4ac,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  secondary: (
+    0: #000000,
+    10: #350f0c,
+    20: #4f2320,
+    25: #5d2e2a,
+    30: #6a3934,
+    35: #78443f,
+    40: #86504b,
+    50: #a26862,
+    60: #bf817a,
+    70: #dd9b94,
+    80: #fbb5ae,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  tertiary: (
+    0: #000000,
+    10: #281900,
+    20: #422c01,
+    25: #4f3709,
+    30: #5c4214,
+    35: #684e1f,
+    40: #765a2a,
+    50: #917240,
+    60: #ac8c57,
+    70: #c9a66e,
+    80: #e6c187,
+    90: #ffdeac,
+    95: #ffeed9,
+    98: #fff8f3,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  neutral: (
+    0: #000000,
+    10: #231918,
+    20: #3a2e2c,
+    25: #453837,
+    30: #514442,
+    35: #5d4f4e,
+    40: #6a5b59,
+    50: #837372,
+    60: #9e8d8b,
+    70: #b9a7a5,
+    80: #d5c2c0,
+    90: #f2dedc,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+    4: #150c0b,
+    6: #1b1110,
+    12: #281d1c,
+    17: #332726,
+    22: #3e3231,
+    24: #433635,
+    87: #ead6d3,
+    92: #f8e4e1,
+    94: #fee9e7,
+    96: #fff0ef,
+  ),
+  neutral-variant: (
+    0: #000000,
+    10: #281716,
+    20: #3e2c2a,
+    25: #4a3735,
+    30: #564240,
+    35: #634d4b,
+    40: #705957,
+    50: #8a716f,
+    60: #a58b88,
+    70: #c1a5a2,
+    80: #ddc0bd,
+    90: #fadcd8,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  error: (
+    0: #000000,
+    10: #410002,
+    20: #690005,
+    25: #7e0007,
+    30: #93000a,
+    35: #a80710,
+    40: #ba1a1a,
+    50: #de3730,
+    60: #ff5449,
+    70: #ff897d,
+    80: #ffb4ab,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+);
+
+$_rest: (
+  secondary: map.get($_palettes, secondary),
+  neutral: map.get($_palettes, neutral),
+  neutral-variant: map.get($_palettes,  neutral-variant),
+  error: map.get($_palettes, error),
+);
+$_primary: map.merge(map.get($_palettes, primary), $_rest);
+$_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
+
+$dark_brown-light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+$dark_brown-dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+// This file was generated by running 'ng generate @angular/material:m3-theme'.
+// Proceed with caution if making changes to this file.
+
+// Note: Color palettes are generated from primary: #0d345c
+$_palettes: (
+  primary: (
+    0: #000000,
+    10: #001c39,
+    20: #083159,
+    25: #193c65,
+    30: #264871,
+    35: #33547d,
+    40: #3f608a,
+    50: #5979a5,
+    60: #7392c0,
+    70: #8daddc,
+    80: #a8c8f9,
+    90: #d3e3ff,
+    95: #ebf1ff,
+    98: #f8f9ff,
+    99: #fdfcff,
+    100: #ffffff,
+  ),
+  secondary: (
+    0: #000000,
+    10: #101c2c,
+    20: #263141,
+    25: #313c4d,
+    30: #3c4759,
+    35: #485365,
+    40: #545f71,
+    50: #6c788b,
+    60: #8691a5,
+    70: #a0acc0,
+    80: #bbc7dc,
+    90: #d7e3f9,
+    95: #ebf1ff,
+    98: #f8f9ff,
+    99: #fdfcff,
+    100: #ffffff,
+  ),
+  tertiary: (
+    0: #000000,
+    10: #2d0d38,
+    20: #44234e,
+    25: #502e5a,
+    30: #5c3a66,
+    35: #694572,
+    40: #76517f,
+    50: #906999,
+    60: #ab83b4,
+    70: #c79dd0,
+    80: #e4b8ed,
+    90: #fad7ff,
+    95: #ffebff,
+    98: #fff7fb,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  neutral: (
+    0: #000000,
+    10: #1a1c1f,
+    20: #2f3034,
+    25: #3a3b3f,
+    30: #46474a,
+    35: #515256,
+    40: #5d5e62,
+    50: #76777a,
+    60: #909094,
+    70: #ababaf,
+    80: #c6c6ca,
+    90: #e3e2e6,
+    95: #f1f0f4,
+    98: #faf9fd,
+    99: #fdfcff,
+    100: #ffffff,
+    4: #0d0e11,
+    6: #121316,
+    12: #1e2023,
+    17: #292a2d,
+    22: #333538,
+    24: #38393c,
+    87: #dad9dd,
+    92: #e8e8ec,
+    94: #eeedf1,
+    96: #f4f3f7,
+  ),
+  neutral-variant: (
+    0: #000000,
+    10: #181c22,
+    20: #2c3138,
+    25: #383c43,
+    30: #43474e,
+    35: #4f535a,
+    40: #5b5e66,
+    50: #73777f,
+    60: #8d9199,
+    70: #a8abb4,
+    80: #c3c6cf,
+    90: #dfe2ec,
+    95: #eef0fa,
+    98: #f8f9ff,
+    99: #fdfcff,
+    100: #ffffff,
+  ),
+  error: (
+    0: #000000,
+    10: #410002,
+    20: #690005,
+    25: #7e0007,
+    30: #93000a,
+    35: #a80710,
+    40: #ba1a1a,
+    50: #de3730,
+    60: #ff5449,
+    70: #ff897d,
+    80: #ffb4ab,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+);
+
+$_rest: (
+  secondary: map.get($_palettes, secondary),
+  neutral: map.get($_palettes, neutral),
+  neutral-variant: map.get($_palettes,  neutral-variant),
+  error: map.get($_palettes, error),
+);
+$_primary: map.merge(map.get($_palettes, primary), $_rest);
+$_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
+
+$denim_blue-light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+$denim_blue-dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+// This file was generated by running 'ng generate @angular/material:m3-theme'.
+// Proceed with caution if making changes to this file.
+
+// Note: Color palettes are generated from primary: #996f00
+$_palettes: (
+  primary: (
+    0: #000000,
+    10: #261900,
+    20: #412d00,
+    25: #4f3700,
+    30: #5d4200,
+    35: #6c4d00,
+    40: #7b5800,
+    50: #9a7001,
+    60: #b78923,
+    70: #d4a43c,
+    80: #f2bf55,
+    90: #ffdea4,
+    95: #ffefd6,
+    98: #fff8f2,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  secondary: (
+    0: #000000,
+    10: #261900,
+    20: #3f2e09,
+    25: #4b3913,
+    30: #57441d,
+    35: #644f28,
+    40: #715b33,
+    50: #8b7449,
+    60: #a68d60,
+    70: #c2a878,
+    80: #dfc391,
+    90: #fcdfab,
+    95: #ffefd6,
+    98: #fff8f2,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  tertiary: (
+    0: #000000,
+    10: #171e00,
+    20: #293500,
+    25: #334000,
+    30: #3d4d00,
+    35: #475900,
+    40: #53650e,
+    50: #6b7f28,
+    60: #84993f,
+    70: #9eb457,
+    80: #b9d06f,
+    90: #d5ed88,
+    95: #e3fb95,
+    98: #f4ffc9,
+    99: #fbffe1,
+    100: #ffffff,
+  ),
+  neutral: (
+    0: #000000,
+    10: #1f1b14,
+    20: #353028,
+    25: #403b32,
+    30: #4c463d,
+    35: #585249,
+    40: #645d54,
+    50: #7d766c,
+    60: #979085,
+    70: #b2aa9f,
+    80: #cec5ba,
+    90: #ebe1d5,
+    95: #f9efe3,
+    98: #fff8f2,
+    99: #fffbff,
+    100: #ffffff,
+    4: #110e07,
+    6: #17130c,
+    12: #231f18,
+    17: #2e2922,
+    22: #39342c,
+    24: #3e3830,
+    87: #e2d9cd,
+    92: #f1e7db,
+    94: #f7ece0,
+    96: #fcf2e6,
+  ),
+  neutral-variant: (
+    0: #000000,
+    10: #221b0e,
+    20: #372f21,
+    25: #433a2b,
+    30: #4f4636,
+    35: #5b5141,
+    40: #675d4c,
+    50: #817664,
+    60: #9b8f7c,
+    70: #b6a996,
+    80: #d2c5b0,
+    90: #efe1cb,
+    95: #feefd9,
+    98: #fff8f2,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  error: (
+    0: #000000,
+    10: #410002,
+    20: #690005,
+    25: #7e0007,
+    30: #93000a,
+    35: #a80710,
+    40: #ba1a1a,
+    50: #de3730,
+    60: #ff5449,
+    70: #ff897d,
+    80: #ffb4ab,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+);
+
+$_rest: (
+  secondary: map.get($_palettes, secondary),
+  neutral: map.get($_palettes, neutral),
+  neutral-variant: map.get($_palettes,  neutral-variant),
+  error: map.get($_palettes, error),
+);
+$_primary: map.merge(map.get($_palettes, primary), $_rest);
+$_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
+
+$gold-light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+$gold-dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+// This file was generated by running 'ng generate @angular/material:m3-theme'.
+// Proceed with caution if making changes to this file.
+
+// Note: Color palettes are generated from primary: #1a5e1f
+$_palettes: (
+  primary: (
+    0: #000000,
+    10: #002203,
+    20: #003909,
+    25: #00460d,
+    30: #0a5315,
+    35: #1b5f20,
+    40: #296b2b,
+    50: #438541,
+    60: #5ca058,
+    70: #76bb70,
+    80: #91d889,
+    90: #acf4a3,
+    95: #c8ffbf,
+    98: #ecffe4,
+    99: #f6ffef,
+    100: #ffffff,
+  ),
+  secondary: (
+    0: #000000,
+    10: #082008,
+    20: #1d361c,
+    25: #284126,
+    30: #344d30,
+    35: #3f593b,
+    40: #4b6546,
+    50: #637e5e,
+    60: #7c9876,
+    70: #96b38f,
+    80: #b1cfa9,
+    90: #ccebc4,
+    95: #daf9d2,
+    98: #ecffe4,
+    99: #f6ffef,
+    100: #ffffff,
+  ),
+  tertiary: (
+    0: #000000,
+    10: #001d34,
+    20: #003355,
+    25: #003e66,
+    30: #004a78,
+    35: #02568a,
+    40: #1d6297,
+    50: #3d7bb1,
+    60: #5a95cd,
+    70: #75b0e9,
+    80: #99cbff,
+    90: #cfe5ff,
+    95: #e8f1ff,
+    98: #f7f9ff,
+    99: #fcfcff,
+    100: #ffffff,
+  ),
+  neutral: (
+    0: #000000,
+    10: #191d17,
+    20: #2d322c,
+    25: #383d36,
+    30: #444841,
+    35: #4f544d,
+    40: #5b6059,
+    50: #747871,
+    60: #8e928a,
+    70: #a9aca4,
+    80: #c4c8bf,
+    90: #e0e4db,
+    95: #eff2e9,
+    98: #f7fbf1,
+    99: #fafdf4,
+    100: #ffffff,
+    4: #0b0f0a,
+    6: #10140f,
+    12: #1d211b,
+    17: #272b25,
+    22: #323630,
+    24: #363a34,
+    87: #d8dbd2,
+    92: #e6e9e0,
+    94: #ecefe6,
+    96: #f2f5eb,
+  ),
+  neutral-variant: (
+    0: #000000,
+    10: #161e14,
+    20: #2a3328,
+    25: #353e33,
+    30: #41493e,
+    35: #4c5549,
+    40: #586155,
+    50: #717a6d,
+    60: #8a9386,
+    70: #a5aea0,
+    80: #c0c9ba,
+    90: #dce5d6,
+    95: #eaf4e4,
+    98: #f3fcec,
+    99: #f6ffef,
+    100: #ffffff,
+  ),
+  error: (
+    0: #000000,
+    10: #410002,
+    20: #690005,
+    25: #7e0007,
+    30: #93000a,
+    35: #a80710,
+    40: #ba1a1a,
+    50: #de3730,
+    60: #ff5449,
+    70: #ff897d,
+    80: #ffb4ab,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+);
+
+$_rest: (
+  secondary: map.get($_palettes, secondary),
+  neutral: map.get($_palettes, neutral),
+  neutral-variant: map.get($_palettes,  neutral-variant),
+  error: map.get($_palettes, error),
+);
+$_primary: map.merge(map.get($_palettes, primary), $_rest);
+$_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
+
+$green-light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+$green-dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+// This file was generated by running 'ng generate @angular/material:m3-theme'.
+// Proceed with caution if making changes to this file.
+
+// Note: Color palettes are generated from primary: #9a0000
+$_palettes: (
+  primary: (
+    0: #000000,
+    10: #410000,
+    20: #690000,
+    25: #7e0000,
+    30: #930000,
+    35: #a60f07,
+    40: #b81f13,
+    50: #dc3a29,
+    60: #ff5541,
+    70: #ff8a78,
+    80: #ffb4a8,
+    90: #ffdad4,
+    95: #ffedea,
+    98: #fff8f6,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  secondary: (
+    0: #000000,
+    10: #410000,
+    20: #60130b,
+    25: #701e14,
+    30: #7f291e,
+    35: #8f3529,
+    40: #9f4033,
+    50: #be5849,
+    60: #de7060,
+    70: #ff8a78,
+    80: #ffb4a8,
+    90: #ffdad4,
+    95: #ffedea,
+    98: #fff8f6,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  tertiary: (
+    0: #000000,
+    10: #281900,
+    20: #432c00,
+    25: #513600,
+    30: #604100,
+    35: #6e4c08,
+    40: #7c5815,
+    50: #97702d,
+    60: #b48943,
+    70: #d1a45b,
+    80: #efbf73,
+    90: #ffdeae,
+    95: #ffeeda,
+    98: #fff8f3,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  neutral: (
+    0: #000000,
+    10: #271815,
+    20: #3e2c29,
+    25: #4a3734,
+    30: #56423f,
+    35: #624e4a,
+    40: #6f5956,
+    50: #89726e,
+    60: #a48b87,
+    70: #c0a5a1,
+    80: #dcc0bc,
+    90: #f9dcd7,
+    95: #ffedea,
+    98: #fff8f6,
+    99: #fffbff,
+    100: #ffffff,
+    4: #180b08,
+    6: #1e100d,
+    12: #2c1c19,
+    17: #372623,
+    22: #43302d,
+    24: #473532,
+    87: #f1d4cf,
+    92: #ffe2dd,
+    94: #ffe9e6,
+    96: #fff0ee,
+  ),
+  neutral-variant: (
+    0: #000000,
+    10: #2b1613,
+    20: #422a26,
+    25: #4f3531,
+    30: #5b403c,
+    35: #684c47,
+    40: #755753,
+    50: #8f706b,
+    60: #ab8983,
+    70: #c7a39d,
+    80: #e4beb8,
+    90: #ffdad4,
+    95: #ffedea,
+    98: #fff8f6,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  error: (
+    0: #000000,
+    10: #410002,
+    20: #690005,
+    25: #7e0007,
+    30: #93000a,
+    35: #a80710,
+    40: #ba1a1a,
+    50: #de3730,
+    60: #ff5449,
+    70: #ff897d,
+    80: #ffb4ab,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+);
+
+$_rest: (
+  secondary: map.get($_palettes, secondary),
+  neutral: map.get($_palettes, neutral),
+  neutral-variant: map.get($_palettes,  neutral-variant),
+  error: map.get($_palettes, error),
+);
+$_primary: map.merge(map.get($_palettes, primary), $_rest);
+$_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
+
+$maroon-light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+$maroon-dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+// This file was generated by running 'ng generate @angular/material:m3-theme'.
+// Proceed with caution if making changes to this file.
+
+// Note: Color palettes are generated from primary: #0c22c5
+$_palettes: (
+  primary: (
+    0: #000000,
+    10: #000865,
+    20: #00139f,
+    25: #0019be,
+    30: #182bca,
+    35: #2a3cd5,
+    40: #394ae1,
+    50: #5566fb,
+    60: #7886ff,
+    70: #9aa4ff,
+    80: #bdc2ff,
+    90: #dfe0ff,
+    95: #f1efff,
+    98: #fbf8ff,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  secondary: (
+    0: #000000,
+    10: #0b1252,
+    20: #232a68,
+    25: #2e3573,
+    30: #3a4180,
+    35: #464d8c,
+    40: #525999,
+    50: #6b72b4,
+    60: #858cd0,
+    70: #9fa6ec,
+    80: #bdc2ff,
+    90: #dfe0ff,
+    95: #f1efff,
+    98: #fbf8ff,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  tertiary: (
+    0: #000000,
+    10: #340042,
+    20: #55006a,
+    25: #67007f,
+    30: #770e90,
+    35: #84229d,
+    40: #9231aa,
+    50: #ae4dc6,
+    60: #cb68e2,
+    70: #e983ff,
+    80: #f4aeff,
+    90: #fdd6ff,
+    95: #ffebfd,
+    98: #fff7fa,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  neutral: (
+    0: #000000,
+    10: #1a1b24,
+    20: #2f3039,
+    25: #3a3b44,
+    30: #464650,
+    35: #51515c,
+    40: #5e5d68,
+    50: #767681,
+    60: #90909b,
+    70: #abaab6,
+    80: #c7c5d1,
+    90: #e3e1ee,
+    95: #f1effc,
+    98: #fbf8ff,
+    99: #fffbff,
+    100: #ffffff,
+    4: #0d0e16,
+    6: #12131b,
+    12: #1e1f28,
+    17: #292932,
+    22: #34343e,
+    24: #383842,
+    87: #dad9e5,
+    92: #e9e7f3,
+    94: #eeecf9,
+    96: #f4f2ff,
+  ),
+  neutral-variant: (
+    0: #000000,
+    10: #191b28,
+    20: #2e2f3e,
+    25: #393a49,
+    30: #454655,
+    35: #505161,
+    40: #5c5d6d,
+    50: #757687,
+    60: #8f8fa1,
+    70: #aaaabc,
+    80: #c5c5d8,
+    90: #e2e1f4,
+    95: #f1efff,
+    98: #fbf8ff,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  error: (
+    0: #000000,
+    10: #410002,
+    20: #690005,
+    25: #7e0007,
+    30: #93000a,
+    35: #a80710,
+    40: #ba1a1a,
+    50: #de3730,
+    60: #ff5449,
+    70: #ff897d,
+    80: #ffb4ab,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+);
+
+$_rest: (
+  secondary: map.get($_palettes, secondary),
+  neutral: map.get($_palettes, neutral),
+  neutral-variant: map.get($_palettes,  neutral-variant),
+  error: map.get($_palettes, error),
+);
+$_primary: map.merge(map.get($_palettes, primary), $_rest);
+$_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
+
+$new_blue-light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+$new_blue-dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+// This file was generated by running 'ng generate @angular/material:m3-theme'.
+// Proceed with caution if making changes to this file.
+
+// Note: Color palettes are generated from primary: #ca5100
+$_palettes: (
+  primary: (
+    0: #000000,
+    10: #351000,
+    20: #571f00,
+    25: #692600,
+    30: #7b2f00,
+    35: #8e3700,
+    40: #a23f00,
+    50: #ca5100,
+    60: #ec6921,
+    70: #ff8c54,
+    80: #ffb695,
+    90: #ffdbcc,
+    95: #ffede6,
+    98: #fff8f6,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  secondary: (
+    0: #000000,
+    10: #351000,
+    20: #542105,
+    25: #622c0f,
+    30: #703719,
+    35: #7f4224,
+    40: #8d4d2e,
+    50: #ab6544,
+    60: #c97e5b,
+    70: #e89873,
+    80: #ffb695,
+    90: #ffdbcc,
+    95: #ffede6,
+    98: #fff8f6,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  tertiary: (
+    0: #000000,
+    10: #1f1c00,
+    20: #353100,
+    25: #413c00,
+    30: #4e4800,
+    35: #5a5400,
+    40: #676000,
+    50: #827901,
+    60: #9c9323,
+    70: #b8ae3d,
+    80: #d4c956,
+    90: #f1e66e,
+    95: #fff485,
+    98: #fffae3,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  neutral: (
+    0: #000000,
+    10: #251913,
+    20: #3b2d27,
+    25: #473832,
+    30: #53433d,
+    35: #5f4f48,
+    40: #6c5b54,
+    50: #86736c,
+    60: #a18d85,
+    70: #bca79e,
+    80: #d8c2b9,
+    90: #f5ded4,
+    95: #ffede6,
+    98: #fff8f6,
+    99: #fffbff,
+    100: #ffffff,
+    4: #160c07,
+    6: #1c110c,
+    12: #291d17,
+    17: #352721,
+    22: #40322b,
+    24: #453630,
+    87: #edd5cc,
+    92: #fbe3da,
+    94: #ffe9e1,
+    96: #fff1ec,
+  ),
+  neutral-variant: (
+    0: #000000,
+    10: #29170f,
+    20: #402c23,
+    25: #4c372d,
+    30: #584238,
+    35: #654d43,
+    40: #72594e,
+    50: #8c7166,
+    60: #a78b7f,
+    70: #c3a598,
+    80: #e0c0b3,
+    90: #fddcce,
+    95: #ffede6,
+    98: #fff8f6,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  error: (
+    0: #000000,
+    10: #410002,
+    20: #690005,
+    25: #7e0007,
+    30: #93000a,
+    35: #a80710,
+    40: #ba1a1a,
+    50: #de3730,
+    60: #ff5449,
+    70: #ff897d,
+    80: #ffb4ab,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+);
+
+$_rest: (
+  secondary: map.get($_palettes, secondary),
+  neutral: map.get($_palettes, neutral),
+  neutral-variant: map.get($_palettes,  neutral-variant),
+  error: map.get($_palettes, error),
+);
+$_primary: map.merge(map.get($_palettes, primary), $_rest);
+$_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
+
+$orange-light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+$orange-dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+// This file was generated by running 'ng generate @angular/material:m3-theme'.
+// Proceed with caution if making changes to this file.
+
+// Note: Color palettes are generated from primary: #004d46
+$_palettes: (
+  primary: (
+    0: #000000,
+    10: #00201d,
+    20: #003732,
+    25: #00443d,
+    30: #055049,
+    35: #1a5c54,
+    40: #296860,
+    50: #448179,
+    60: #5e9c93,
+    70: #79b6ad,
+    80: #94d2c8,
+    90: #b0efe4,
+    95: #bdfdf3,
+    98: #e4fff9,
+    99: #f2fffb,
+    100: #ffffff,
+  ),
+  secondary: (
+    0: #000000,
+    10: #081f1c,
+    20: #1e3431,
+    25: #2a3f3c,
+    30: #354b47,
+    35: #405753,
+    40: #4c635f,
+    50: #657c78,
+    60: #7e9591,
+    70: #98b0ab,
+    80: #b3ccc7,
+    90: #cfe8e2,
+    95: #ddf6f1,
+    98: #e5fff9,
+    99: #f2fffb,
+    100: #ffffff,
+  ),
+  tertiary: (
+    0: #000000,
+    10: #21133b,
+    20: #372952,
+    25: #42345d,
+    30: #4e3f6a,
+    35: #594b76,
+    40: #665783,
+    50: #7f6f9d,
+    60: #9989b8,
+    70: #b4a3d4,
+    80: #d0bef1,
+    90: #eaddff,
+    95: #f7edff,
+    98: #fef7ff,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  neutral: (
+    0: #000000,
+    10: #191c1b,
+    20: #2e3130,
+    25: #393c3b,
+    30: #444746,
+    35: #505352,
+    40: #5c5f5e,
+    50: #757876,
+    60: #8f9190,
+    70: #a9acaa,
+    80: #c5c7c5,
+    90: #e1e3e1,
+    95: #eff1ef,
+    98: #f8faf8,
+    99: #fbfdfb,
+    100: #ffffff,
+    4: #0c0f0e,
+    6: #111413,
+    12: #1d201f,
+    17: #272b2a,
+    22: #323534,
+    24: #373a39,
+    87: #d8dad9,
+    92: #e7e9e7,
+    94: #eceeec,
+    96: #f2f4f2,
+  ),
+  neutral-variant: (
+    0: #000000,
+    10: #141d1c,
+    20: #293230,
+    25: #343d3b,
+    30: #3f4947,
+    35: #4b5452,
+    40: #57605e,
+    50: #6f7977,
+    60: #899390,
+    70: #a4adab,
+    80: #bfc9c6,
+    90: #dbe5e2,
+    95: #e9f3f0,
+    98: #f2fbf8,
+    99: #f5fefb,
+    100: #ffffff,
+  ),
+  error: (
+    0: #000000,
+    10: #410002,
+    20: #690005,
+    25: #7e0007,
+    30: #93000a,
+    35: #a80710,
+    40: #ba1a1a,
+    50: #de3730,
+    60: #ff5449,
+    70: #ff897d,
+    80: #ffb4ab,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+);
+
+$_rest: (
+  secondary: map.get($_palettes, secondary),
+  neutral: map.get($_palettes, neutral),
+  neutral-variant: map.get($_palettes,  neutral-variant),
+  error: map.get($_palettes, error),
+);
+$_primary: map.merge(map.get($_palettes, primary), $_rest);
+$_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
+
+$pine_green-light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+$pine_green-dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+// This file was generated by running 'ng generate @angular/material:m3-theme'.
+// Proceed with caution if making changes to this file.
+
+// Note: Color palettes are generated from primary: #4a138c
+$_palettes: (
+  primary: (
+    0: #000000,
+    10: #280056,
+    20: #430585,
+    25: #4f1a91,
+    30: #5b299d,
+    35: #6737a9,
+    40: #7345b6,
+    50: #8d5fd1,
+    60: #a879ee,
+    70: #c197ff,
+    80: #d7baff,
+    90: #eddcff,
+    95: #f8edff,
+    98: #fef7ff,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  secondary: (
+    0: #000000,
+    10: #23123b,
+    20: #392852,
+    25: #44335e,
+    30: #503e6a,
+    35: #5c4a76,
+    40: #685683,
+    50: #826e9d,
+    60: #9c88b8,
+    70: #b7a2d4,
+    80: #d3bdf1,
+    90: #eddcff,
+    95: #f8edff,
+    98: #fef7ff,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  tertiary: (
+    0: #000000,
+    10: #3b002f,
+    20: #5f004e,
+    25: #700b5c,
+    30: #7e1b68,
+    35: #8d2975,
+    40: #9b3682,
+    50: #b9509c,
+    60: #d869b7,
+    70: #f783d3,
+    80: #ffade2,
+    90: #ffd8ed,
+    95: #ffecf4,
+    98: #fff8f9,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  neutral: (
+    0: #000000,
+    10: #1e1a21,
+    20: #332f37,
+    25: #3e3a42,
+    30: #49454d,
+    35: #555159,
+    40: #615c65,
+    50: #7b757e,
+    60: #958f98,
+    70: #b0a9b3,
+    80: #cbc4ce,
+    90: #e8e0ea,
+    95: #f6eef9,
+    98: #fef7ff,
+    99: #fffbff,
+    100: #ffffff,
+    4: #100d14,
+    6: #151219,
+    12: #221e26,
+    17: #2c2830,
+    22: #37333b,
+    24: #3c3840,
+    87: #dfd7e2,
+    92: #eee6f0,
+    94: #f3ebf6,
+    96: #f9f1fb,
+  ),
+  neutral-variant: (
+    0: #000000,
+    10: #1e1925,
+    20: #342e3b,
+    25: #3f3946,
+    30: #4b4452,
+    35: #56505e,
+    40: #635c6a,
+    50: #7c7483,
+    60: #968e9d,
+    70: #b1a8b8,
+    80: #cdc3d4,
+    90: #e9dff0,
+    95: #f8edff,
+    98: #fef7ff,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  error: (
+    0: #000000,
+    10: #410002,
+    20: #690005,
+    25: #7e0007,
+    30: #93000a,
+    35: #a80710,
+    40: #ba1a1a,
+    50: #de3730,
+    60: #ff5449,
+    70: #ff897d,
+    80: #ffb4ab,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+);
+
+$_rest: (
+  secondary: map.get($_palettes, secondary),
+  neutral: map.get($_palettes, neutral),
+  neutral-variant: map.get($_palettes,  neutral-variant),
+  error: map.get($_palettes, error),
+);
+$_primary: map.merge(map.get($_palettes, primary), $_rest);
+$_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
+
+$purple-light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+$purple-dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+// This file was generated by running 'ng generate @angular/material:m3-theme'.
+// Proceed with caution if making changes to this file.
+
+// Note: Color palettes are generated from primary: #c62726
+$_palettes: (
+  primary: (
+    0: #000000,
+    10: #410002,
+    20: #690006,
+    25: #7d0009,
+    30: #93000d,
+    35: #a70a14,
+    40: #b91c1e,
+    50: #dd3834,
+    60: #ff544b,
+    70: #ff897e,
+    80: #ffb4ab,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  secondary: (
+    0: #000000,
+    10: #410002,
+    20: #611210,
+    25: #701d19,
+    30: #802923,
+    35: #8f342e,
+    40: #9f4038,
+    50: #be574f,
+    60: #de7066,
+    70: #ff897e,
+    80: #ffb4ab,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  tertiary: (
+    0: #000000,
+    10: #2b1700,
+    20: #472a00,
+    25: #563400,
+    30: #663e00,
+    35: #764800,
+    40: #865300,
+    50: #a56a15,
+    60: #c3832e,
+    70: #e29d46,
+    80: #ffb963,
+    90: #ffddb9,
+    95: #ffeedf,
+    98: #fff8f4,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  neutral: (
+    0: #000000,
+    10: #271816,
+    20: #3e2c2a,
+    25: #4a3735,
+    30: #564240,
+    35: #624e4b,
+    40: #6f5957,
+    50: #89726f,
+    60: #a48b88,
+    70: #c0a5a2,
+    80: #dcc0bd,
+    90: #f9dcd8,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+    4: #180a09,
+    6: #1e100e,
+    12: #2c1c1a,
+    17: #372624,
+    22: #43302e,
+    24: #473533,
+    87: #f0d4d0,
+    92: #ffe2de,
+    94: #ffe9e6,
+    96: #fff0ee,
+  ),
+  neutral-variant: (
+    0: #000000,
+    10: #2b1614,
+    20: #422a28,
+    25: #4f3532,
+    30: #5b403d,
+    35: #684b48,
+    40: #755754,
+    50: #8f6f6c,
+    60: #ab8985,
+    70: #c7a39f,
+    80: #e4beb9,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  error: (
+    0: #000000,
+    10: #410002,
+    20: #690005,
+    25: #7e0007,
+    30: #93000a,
+    35: #a80710,
+    40: #ba1a1a,
+    50: #de3730,
+    60: #ff5449,
+    70: #ff897d,
+    80: #ffb4ab,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+);
+
+$_rest: (
+  secondary: map.get($_palettes, secondary),
+  neutral: map.get($_palettes, neutral),
+  neutral-variant: map.get($_palettes,  neutral-variant),
+  error: map.get($_palettes, error),
+);
+$_primary: map.merge(map.get($_palettes, primary), $_rest);
+$_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
+
+$red-light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+$red-dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+// This file was generated by running 'ng generate @angular/material:m3-theme'.
+// Proceed with caution if making changes to this file.
+
+// Note: Color palettes are generated from primary: #006666
+$_palettes: (
+  primary: (
+    0: #000000,
+    10: #002020,
+    20: #003737,
+    25: #004343,
+    30: #004f4f,
+    35: #005c5c,
+    40: #096969,
+    50: #318382,
+    60: #4f9d9c,
+    70: #6bb8b7,
+    80: #86d4d3,
+    90: #a2f0ef,
+    95: #b0fffe,
+    98: #e2fffe,
+    99: #f1fffe,
+    100: #ffffff,
+  ),
+  secondary: (
+    0: #000000,
+    10: #022020,
+    20: #193535,
+    25: #254040,
+    30: #304b4b,
+    35: #3c5757,
+    40: #486363,
+    50: #607c7c,
+    60: #799695,
+    70: #94b1b0,
+    80: #afcccb,
+    90: #cae8e7,
+    95: #d8f7f6,
+    98: #e2fffe,
+    99: #f1fffe,
+    100: #ffffff,
+  ),
+  tertiary: (
+    0: #000000,
+    10: #270e40,
+    20: #3d2556,
+    25: #493062,
+    30: #553c6e,
+    35: #61477b,
+    40: #6d5387,
+    50: #876ca2,
+    60: #a285bd,
+    70: #bd9fd9,
+    80: #d9baf6,
+    90: #f0dbff,
+    95: #f9ecff,
+    98: #fff7fe,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  neutral: (
+    0: #000000,
+    10: #181c1c,
+    20: #2d3131,
+    25: #383c3c,
+    30: #444747,
+    35: #4f5353,
+    40: #5b5f5f,
+    50: #747877,
+    60: #8e9191,
+    70: #a8acab,
+    80: #c4c7c6,
+    90: #e0e3e2,
+    95: #eef1f0,
+    98: #f7faf9,
+    99: #fafdfc,
+    100: #ffffff,
+    4: #0b0f0f,
+    6: #101414,
+    12: #1c2020,
+    17: #272b2a,
+    22: #323535,
+    24: #363a3a,
+    87: #d7dbda,
+    92: #e6e9e8,
+    94: #ebeeee,
+    96: #f1f4f3,
+  ),
+  neutral-variant: (
+    0: #000000,
+    10: #141d1d,
+    20: #283232,
+    25: #333d3d,
+    30: #3f4948,
+    35: #4a5454,
+    40: #566060,
+    50: #6f7979,
+    60: #889392,
+    70: #a3adad,
+    80: #bec9c8,
+    90: #dae5e4,
+    95: #e8f3f2,
+    98: #f1fcfb,
+    99: #f4fefd,
+    100: #ffffff,
+  ),
+  error: (
+    0: #000000,
+    10: #410002,
+    20: #690005,
+    25: #7e0007,
+    30: #93000a,
+    35: #a80710,
+    40: #ba1a1a,
+    50: #de3730,
+    60: #ff5449,
+    70: #ff897d,
+    80: #ffb4ab,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+);
+
+$_rest: (
+  secondary: map.get($_palettes, secondary),
+  neutral: map.get($_palettes, neutral),
+  neutral-variant: map.get($_palettes,  neutral-variant),
+  error: map.get($_palettes, error),
+);
+$_primary: map.merge(map.get($_palettes, primary), $_rest);
+$_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
+
+$teal_green-light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+$teal_green-dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+// This file was generated by running 'ng generate @angular/material:m3-theme'.
+// Proceed with caution if making changes to this file.
+
+// Note: Color palettes are generated from primary: #660066
+$_palettes: (
+  primary: (
+    0: #000000,
+    10: #380038,
+    20: #5b005b,
+    25: #6c096b,
+    30: #7a1b78,
+    35: #882984,
+    40: #963792,
+    50: #b351ac,
+    60: #d16bc8,
+    70: #ef85e5,
+    80: #ffaaf3,
+    90: #ffd7f5,
+    95: #ffebf8,
+    98: #fff7f9,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  secondary: (
+    0: #000000,
+    10: #300d2e,
+    20: #482345,
+    25: #542e50,
+    30: #61395c,
+    35: #6e4568,
+    40: #7b5075,
+    50: #96688f,
+    60: #b182a9,
+    70: #ce9cc5,
+    80: #ebb6e1,
+    90: #ffd7f5,
+    95: #ffebf8,
+    98: #fff7f9,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  tertiary: (
+    0: #000000,
+    10: #3f0015,
+    20: #660026,
+    25: #780a31,
+    30: #88193b,
+    35: #972747,
+    40: #a73352,
+    50: #c84c6a,
+    60: #e86583,
+    70: #ff869f,
+    80: #ffb2be,
+    90: #ffd9de,
+    95: #ffecee,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  neutral: (
+    0: #000000,
+    10: #21191f,
+    20: #372e34,
+    25: #42393f,
+    30: #4e444b,
+    35: #5a4f56,
+    40: #665b62,
+    50: #7f747b,
+    60: #9a8d95,
+    70: #b5a8b0,
+    80: #d1c3cb,
+    90: #eddee7,
+    95: #fcedf5,
+    98: #fff7f9,
+    99: #fffbff,
+    100: #ffffff,
+    4: #130c12,
+    6: #181117,
+    12: #251d23,
+    17: #30272e,
+    22: #3b3239,
+    24: #40373d,
+    87: #e5d6de,
+    92: #f3e4ed,
+    94: #f9eaf2,
+    96: #ffeff8,
+  ),
+  neutral-variant: (
+    0: #000000,
+    10: #241822,
+    20: #3a2c37,
+    25: #453742,
+    30: #51424d,
+    35: #5d4e59,
+    40: #6a5a65,
+    50: #83727e,
+    60: #9e8c98,
+    70: #b9a6b3,
+    80: #d5c1ce,
+    90: #f2ddeb,
+    95: #ffebf8,
+    98: #fff7f9,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  error: (
+    0: #000000,
+    10: #410002,
+    20: #690005,
+    25: #7e0007,
+    30: #93000a,
+    35: #a80710,
+    40: #ba1a1a,
+    50: #de3730,
+    60: #ff5449,
+    70: #ff897d,
+    80: #ffb4ab,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+);
+
+$_rest: (
+  secondary: map.get($_palettes, secondary),
+  neutral: map.get($_palettes, neutral),
+  neutral-variant: map.get($_palettes,  neutral-variant),
+  error: map.get($_palettes, error),
+);
+$_primary: map.merge(map.get($_palettes, primary), $_rest);
+$_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
+
+$violet-light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+$violet-dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+));
+
+@mixin cloudapp-color-theme($theme) {
+  @include mat.system-level-colors($theme);
+  @include mat.all-component-colors($theme);
+}
+
+@mixin app-typography() {
+  @include mat.all-component-typographies($app-typography);
+}
+
+$cloudapp-color-map: (
+  "blue": $blue-light-theme,
+  "brown": $brown-light-theme,
+  "cerise": $cerise-light-theme,
+  "charcoal": $charcoal-light-theme,
+  "dark_blue": $dark_blue-light-theme,
+  "dark_brown": $dark_brown-light-theme,
+  "denim_blue": $denim_blue-light-theme,
+  "gold": $gold-light-theme,
+  "green": $green-light-theme,
+  "maroon": $maroon-light-theme,
+  "new_blue": $new_blue-light-theme,
+  "orange": $orange-light-theme,
+  "pine_green": $pine_green-light-theme,
+  "purple": $purple-light-theme,
+  "red": $red-light-theme,
+  "teal_green": $teal_green-light-theme,
+  "violet": $violet-light-theme,
+);
+
+$default-light-theme: $blue-light-theme;
+
+
+@mixin _system-overrides() {
+    --sys-background: #fff;
+
+    --sys-surface: var(--sys-background);
+    --sys-surface-bright: var(--sys-background);
+    --sys-surface-variant: var(--sys-background);
+    --sys-surface-container: var(--sys-background);
+
+    --sys-on-surface: #5e5e5e;
+    --sys-on-surface-variant: var(--sys-on-surface);
+    --sys-on-background: var(--sys-on-surface);
+
+    $font-family: Roboto, Arial, Helvetica, sans-serif;
+
+    --sys-body-large: 300 1rem / 1.3rem #{$font-family};
+    --sys-body-large-font: #{$font-family};
+    --sys-body-large-line-height: 1.3rem;
+    --sys-body-large-size: 1rem;
+    --sys-body-large-tracking: 0;
+    --sys-body-large-weight: 300;
+    --sys-body-medium: var(--sys-body-large);
+    --sys-body-medium-font: var(--sys-body-large-font);
+    --sys-body-medium-line-height: var(--sys-body-large-line-height);
+    --sys-body-medium-size: var(--sys-body-large-size);
+    --sys-body-medium-tracking: var(--sys-body-large-tracking);
+    --sys-body-medium-weight: var(--sys-body-large-weight);
+    --sys-body-small: 300 0.875rem / 1.25rem #{$font-family};
+    --sys-body-small-font: #{$font-family};
+    --sys-body-small-line-height: 1.25rem;
+    --sys-body-small-size: 0.875rem;
+    --sys-body-small-tracking: 0.016rem;
+    --sys-body-small-weight: 300;
+
+    --sys-display-large: 500 1.3rem / 3rem #{$font-family};
+    --sys-display-large-font: #{$font-family};
+    --sys-display-large-line-height: 3rem;
+    --sys-display-large-size: 1.3rem;
+    --sys-display-large-tracking: -0.016rem;
+    --sys-display-large-weight: 500;
+    --sys-display-medium: 400 1.2rem / 2.5rem #{$font-family};
+    --sys-display-medium-font: #{$font-family};
+    --sys-display-medium-line-height: 2.5rem;
+    --sys-display-medium-size: 1.2rem;
+    --sys-display-medium-tracking: 0;
+    --sys-display-medium-weight: 400;
+    --sys-display-small: 400 1.1rem / 2rem #{$font-family};
+    --sys-display-small-font: #{$font-family};
+    --sys-display-small-line-height: 2rem;
+    --sys-display-small-size: 1.1rem;
+    --sys-display-small-tracking: 0;
+    --sys-display-small-weight: 400;
+
+    --sys-headline-large: var(--sys-display-large);
+    --sys-headline-large-font: var(--sys-display-large-font);
+    --sys-headline-large-line-height: 1rem;
+    --sys-headline-large-size: var(--sys-display-large-size);
+    --sys-headline-large-tracking: var(--sys-display-large-tracking);
+    --sys-headline-large-weight: var(--sys-display-large-weight);
+    --sys-headline-medium: var(--sys-display-large);
+    --sys-headline-medium-font: var(--sys-display-large-font);
+    --sys-headline-medium-line-height: 1rem;
+    --sys-headline-medium-size: var(--sys-display-large-size);
+    --sys-headline-medium-tracking: var(--sys-display-large-tracking);
+    --sys-headline-medium-weight: var(--sys-display-large-weight);
+    --sys-headline-small: var(--sys-display-medium);
+    --sys-headline-small-font: var(--sys-display-medium-font);
+    --sys-headline-small-line-height: 1rem;
+    --sys-headline-small-size: var(--sys-display-medium-size);
+    --sys-headline-small-tracking: var(--sys-display-medium-tracking);
+    --sys-headline-small-weight: var(--sys-display-medium-weight);
+
+    --sys-label-large: 500 1rem / 1.25rem #{$font-family};
+    --sys-label-large-font: #{$font-family};
+    --sys-label-large-line-height: 1.25rem;
+    --sys-label-large-size: 1rem;
+    --sys-label-large-tracking: 0.006rem;
+    --sys-label-large-weight: 500;
+    --sys-label-large-weight-prominent: 900;
+    --sys-label-medium: 400 0.875rem / 1.25rem Roboto;
+    --sys-label-medium-font: Roboto;
+    --sys-label-medium-line-height: 1.25rem;
+    --sys-label-medium-size: 0.875rem;
+    --sys-label-medium-tracking: 0.006rem;
+    --sys-label-medium-weight: 400;
+    --sys-label-medium-weight-prominent: 900;
+    --sys-label-small: 400 0.75rem / 1rem Roboto;
+    --sys-label-small-font: Roboto;
+    --sys-label-small-line-height: 1rem;
+    --sys-label-small-size: 0.75rem;
+    --sys-label-small-tracking: 0.031rem;
+    --sys-label-small-weight: 400;
+
+    --sys-title-large: 300 1.375rem / 1.75rem #{$font-family};
+    --sys-title-large-font: #{$font-family};
+    --sys-title-large-line-height: 1.75rem;
+    --sys-title-large-size: 1.375rem;
+    --sys-title-large-tracking: 0;
+    --sys-title-large-weight: 300;
+    --sys-title-medium: 500 1rem / 1.5rem #{$font-family};
+    --sys-title-medium-font: #{$font-family};
+    --sys-title-medium-line-height: 1.5rem;
+    --sys-title-medium-size: 1rem;
+    --sys-title-medium-tracking: 0.009rem;
+    --sys-title-medium-weight: 500;
+    --sys-title-small: var(--sys-title-medium);
+    --sys-title-small-font: var(--sys-title-medium-font);
+    --sys-title-small-line-height: var(--sys-title-medium-line-height);
+    --sys-title-small-size: var(--sys-title-medium-size);
+    --sys-title-small-tracking: var(--sys-title-medium-tracking);
+    --sys-title-small-weight: var(--sys-title-medium-weight);
+}
+
+@mixin _mdc-overrides() {
+    $mdc-button-container-shape: 4px;
+    $mdc-button-container-height: 36px;
+    $mdc-button-horizontal-padding: 16px;
+
+    @include mat.button-overrides(
+        (
+            container-shape: $mdc-button-container-shape,
+            container-height: $mdc-button-container-height,
+            horizontal-padding: $mdc-button-horizontal-padding,
+        )
+    );
+
+    @include mat.icon-button-overrides(
+        (
+            state-layer-size: 32px,
+        )
+    );
+
+    @include mat.form-field-overrides(
+        (
+            filled-label-display: block,
+            filled-with-label-container-padding-top: 16px,
+            filled-with-label-container-padding-bottom: 0px,
+        )
+    );
+
+    @include mat.dialog-overrides(
+        (
+            container-shape: 4px,
+            container-elevation-shadow: unset,
+        )
+    );
+
+    @include mat.list-overrides(
+        (
+            list-item-one-line-container-height: unset,
+            list-item-two-line-container-height: auto,
+            list-item-container-shape: 4px,
+            active-indicator-shape: 4px
+        )
+    );
+
+    @include mat.tabs-overrides(
+        (
+            container-height: 48px
+        )
+    );
+
+    @include mat.slide-toggle-overrides(
+        (
+            selected-icon-size: 14px,
+            track-height: 20px,
+            track-shape: 12px,
+            track-width: 40px,
+            unselected-icon-size: 12px,
+            state-layer-size: 20px,
+            selected-handle-size: 16px,
+            pressed-handle-size: 16px,
+            with-icon-handle-size: 18px,
+            selected-handle-horizontal-margin: 0 12px,
+            selected-with-icon-handle-horizontal-margin: 0 20px,
+            selected-pressed-handle-horizontal-margin: 0 11px,
+            unselected-handle-horizontal-margin: 0 4px,
+            unselected-with-icon-handle-horizontal-margin: 0 2px,
+            unselected-pressed-handle-horizontal-margin: 0 1px,
+            track-outline-width: 1px,
+            selected-track-outline-width: 1px,
+            disabled-unselected-track-outline-width: 1px
+        )
+    );
+}
+
+
+@include mat.core();
+
+$app-typography: (
+  plain-family: Roboto,
+  brand-family: Roboto,
+  bold-weight: 900,
+  medium-weight: 500,
+  regular-weight: 300,
+  use-system-variables: true,
+);
+
+$theme: mat.define-theme(
+  (
+    color: (
+      use-system-variables: true,
+    ),
+    typography: (
+      use-system-variables: true,
+    ),
+    density: (
+      scale: minimum,
+    ),
+  )
+);
+
+@include mat.typography-hierarchy($theme);
+
+:root {
+  font-size: 14px;
+  color: #333;
+  line-height: 18px;
+
+  @include mat.system-level-typography($theme);
+  @include mat.system-level-elevation($theme);
+  @include mat.system-level-shape($theme);
+  @include mat.system-level-motion($theme);
+  @include mat.system-level-state($theme);
+
+  body {
+    &.cloudapp-theme-- {
+      @each $color, $theme in $cloudapp-color-map {
+        &#{$color} {
+          @include mat.system-level-colors($theme);
+        }
+      }
+    }
+    &[class*="cloudapp-theme"] {
+      @include _system-overrides();
+      @include mat.all-component-bases($theme);
+      @include mat.all-component-typographies($theme);
+      @include mat.all-component-densities($theme);
+      @include _mdc-overrides();
+      @include mat.all-component-colors($theme);
+    }
+  }
+}
+
+body[class*="cloudapp-theme"] {
+  margin: 10px 0;
+  padding: 5px;
+
+  a {
+    color: #4164a4;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #1b3c72;
+  }
+  .mat-secondary {
+    background-color: #f2f2f2;
+    color: #474747;
+  }
+  .mat-secondary:hover {
+    background-color: #d5d5d5;
+  }
+  .mat-mdc-dialog-content {
+    padding-bottom: 10px;
+  }
+  .mat-mdc-option {
+    min-height: 2.5rem;
+  }
+  .mdc-text-field {
+    padding: 2px 2px 0;
+  }
+  .mdc-checkbox__background {
+    border-width: 1px;
+  }
+  .mat-mdc-tab-body {
+    padding-top: 10px;
+  }
+  /* Responsively wrap label in checkbox */
+  .mat-mdc-checkbox label,
+  .mat-mdc-radio-button label {
+    white-space: normal;
+    line-height: 1.3em;
+    padding-right: 7px;
+  }
+  /* Spacing in list */
+  mat-list mat-list-item {
+    padding-bottom: 5px;
+    height: unset;
+  }
+  /* Buttons */
+  i.eca-button,
+  i.cloudapp-button {
+    cursor: pointer;
+    padding: 7px;
+    border-radius: 50%;
+    &:hover {
+      background-color: #e5e5e5;
+    }
+    &:first-of-type {
+      margin-left: auto;
+    }
+  }
+  /* List buttons */
+  mat-list-item {
+    i.eca-button,
+    i.cloudapp-button {
+      visibility: hidden;
+    }
+    &:hover i.eca-button,
+    &:hover i.cloudapp-button {
+      visibility: visible;
+    }
+  }
+  div.cloudapp-actions,
+  div.eca-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 12px;
+  }
+  div.cloudapp-actions button,
+  div.eca-actions button {
+    margin-left: 7px;
+  }
+  .loading-shade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  footer {
+    position: fixed;
+    bottom: 0px;
+    background-color: #e5e5e5;
+    width: 100%;
+    height: 38px;
+    padding: 5px;
+    vertical-align: middle;
+    line-height: 38px;
+  }
+}
+

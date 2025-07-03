@@ -1,0 +1,144 @@
+//$color-primary: #006399;
+$color-primary: var(--sys-primary, #00407A);
+$color-primary-light: color-mix(in srgb, var(--sys-primary,#00407A), white 70%);
+$color-primary-extra-light: color-mix(in srgb, var(--sys-primary,#00407A), white 90%);
+$color-error: darkred;
+
+h1 {
+  color: $color-primary;
+  text-align: center;
+  font-weight:bolder;
+}
+
+h2 {
+  color: $color-primary;
+  font-weight:bolder;
+}
+
+h4 {
+  color: $color-primary;
+  font-weight:bolder;
+}
+
+.rec mat-card {
+  border-radius: 0%;
+  background-color: $color-primary-extra-light;
+  color: $color-primary;
+}
+
+mat-card-content {
+  padding-top: 10px;
+}
+
+.item-title{
+  font-size: larger;
+  font-weight:bolder;
+}
+
+.header-box {
+  background-color: $color-primary;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.header-box * {
+  color: $color-primary-extra-light;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  font-weight: bold;
+  margin-right: 1rem;
+  margin-bottom:1rem;
+  padding:1rem;
+  border-radius:10px;
+  border-style: none;
+}
+
+button.primary {
+  background-color: $color-primary;
+  color: $color-primary-extra-light;
+}
+
+button:disabled {
+background-color: Grey;
+}
+
+button.primary * {
+   color: $color-primary-extra-light;
+}
+
+button.primary-reverse {
+  color: $color-primary;
+  background-color: $color-primary-extra-light;
+}
+
+button.primary-reverse * {
+  color: $color-primary;
+}
+
+button.warn{
+  background-color: red;
+  color:white;
+}
+
+#limo-link mat-icon{
+  font-size: medium;
+}
+
+#limo-link button{
+  float:right;
+}
+
+table {
+  width: 100%;
+}
+
+table * {
+  text-align: center;
+  vertical-align: middle;
+}
+
+th {
+  width:100%;
+  background-color: $color-primary;
+  padding: 0.5rem;
+  text-align: center;
+  color: $color-primary-extra-light;
+}
+
+.no_content {
+  border-radius:10px;
+  margin: 1rem;
+  padding:2rem;
+color:$color-error;
+font-weight: bold;
+background-color: adjust-color($color: $color-error, $lightness: 70%);
+display:block;
+}
+
+.dropzone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 2px dashed #ccc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.file-dropper{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-preview{
+max-width: 100%;
+height: auto;
+margin-bottom: 0.5rem;
+border-radius: 10px
+}

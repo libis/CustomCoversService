@@ -1,0 +1,49 @@
+<p>Welcome to settings</p>
+@if(loading){
+<div class="loading-shade">
+  <mat-progress-spinner mode="indeterminate" diameter="50"></mat-progress-spinner>
+</div>
+}
+
+<div class="eca-actions">
+  <div buttons>
+    <button mat-flat-button type="button" color="secondary"
+      (click)="back()"><mat-icon>chevron_left</mat-icon>Back</button>
+    <button mat-flat-button type="button" color="primary" style="margin-left: 10px" (click)="save()"
+      [disabled]="(!configForm.dirty)">Save</button>
+  </div>
+</div>
+
+<form id="gen_conf" [formGroup]="configForm">
+  <p>Catalogue view:<br>
+    <span class="hint">Indicate MMS ID slot by '[rec_id]'</span>
+  </p>
+  <mat-form-field>
+    <mat-label>View URL</mat-label>
+    <input matInput type="url" placeholder="View URL" formControlName="view_url">
+  </mat-form-field>
+
+  <p>Coverserver URL (cover upload):</p>
+  <mat-form-field>
+    <mat-label>Coverserver URL</mat-label>
+    <input matInput type="url" formControlName="cover_loader">
+  </mat-form-field>
+
+  <p>Record service URL:</p>
+  <mat-form-field>
+    <mat-label>Record service URL</mat-label>
+    <input matInput type="url" placeholder="Record Service" formControlName="record_service">
+  </mat-form-field>  
+  <p>Resolver service URL (retrieve covers):</p>
+  <mat-form-field>
+    <mat-label>Resolver URL</mat-label>
+    <input matInput type="url" formControlName="resolver_service">
+  </mat-form-field>
+
+  <p>Resolver key:<br>
+  <span class="hint">Leave empty if not applicable</span></p>
+  <mat-form-field>
+    <mat-label>Resolver key:</mat-label>
+    <input matInput type="text" formControlName="resolver_key">
+  </mat-form-field>
+</form>

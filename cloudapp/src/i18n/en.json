@@ -1,0 +1,30 @@
+{
+    "Translate": {
+        "welcome": "Welcome to the custom covers service",
+        "mms_id": "MMS ID",
+        "by": "By",
+        "rec_reset": "New",
+        "new_search_msg": "To start a new cover upload, please enter record MMS ID:",
+        "start": "Start",
+        "CZ_unsupported": "Cover upload is (currently) not supported for CZ records",
+        "add_cover": {
+            "title": "Cover upload",
+            "msg": "Click to select cover image:"
+        },
+        "upload": "Upload",
+        "upload_reset": "Cancel",
+        "available_covers": "Available covers:",
+        "no_covers": "There are no covers available for this record (yet)",
+        "confirm_del": {
+            "title": "Confirm cover deletion",
+            "msg": "Are you sure you want to delete this cover?"
+        },
+        "confirm_repl": {
+            "title": "Confirm cover upload",
+            "msg": "There is already a custom cover registered for this record. Are you sure you want to replace this cover?"
+        },
+        "yes": "Yes",
+        "no": "No",
+        "close": "Close"
+    }
+}

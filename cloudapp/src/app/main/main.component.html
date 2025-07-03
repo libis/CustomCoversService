@@ -1,0 +1,145 @@
+<div>
+  <h1>{{ 'Translate.welcome' | translate }}</h1>
+
+  <div>
+    @if (loading){
+    <div class="loading-shade">
+      <mat-spinner diameter="50"></mat-spinner>
+      <br>
+    </div>
+    }
+  </div>
+
+  <!--Container 1: Alma record handling-->
+  <!--- If record has been loaded, display record metadata --->
+  <div class="rec">
+    @if (bibRec){
+    <mat-card id="rec_metadata">
+      <mat-card-header class="header-box">
+        <mat-card-title-group>
+          <mat-card-title>{{ 'Translate.mms_id' | translate }}: {{bibRec.mms_id}}</mat-card-title>
+
+          @if(bibRec.mms_id_NZ){
+          <mat-card-subtitle>({{bibRec.mms_id_NZ}})</mat-card-subtitle>
+          }
+          @if(bibRec.mms_id_CZ){
+          <mat-card-subtitle>(CZ: {{bibRec.mms_id_CZ}})</mat-card-subtitle>
+          }
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          <span class="item_title"><strong>{{bibRec.title}}</strong></span><br>
+          {{ 'Translate.by' | translate }} <em>{{bibRec.author}}</em><br>
+          ({{bibRec.place_of_publication}}: {{bibRec.publisher_const}}, {{bibRec.date_of_publication}})
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-flat-button class="warn" (click)="reset()">{{ 'Translate.rec_reset' | translate }}</button>
+      </mat-card-actions>
+    </mat-card>
+    }
+    <!---If no record has been loaded, display input box for MMS ID --->
+    @else{
+    <mat-card id="rec_input">
+      <mat-card-content>
+        <p>{{ 'Translate.new_search_msg' | translate }}</p>
+        <mat-form-field>
+          <mat-label>{{ 'Translate.mms_id' | translate }}</mat-label>
+          <input matInput type="text" [(ngModel)]="mmsID">
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-flat-button class="primary" (click)="loadBibRecord()">{{ 'Translate.start' | translate }}</button>
+      </mat-card-actions>
+    </mat-card>
+    }
+  </div>
+
+  <div class="cover_upload">
+    <!--- If record has been loaded, display record metadata --->
+    @if (bibRec && loading == false){
+          <hr class="dotted">
+    @if (bibRec.CZ){
+      <div class="no_content">
+      <p>{{ 'Translate.CZ_unsupported' | translate }}</p>
+      </div>
+    } 
+    @else{
+
+    <h4>{{ 'Translate.add_cover.title' | translate }}</h4>
+
+    <div class="dropzone">
+      <input type="file" accept="image/*" (change)="onCoverSelected($event)" hidden #fileInput />
+      <div class="file-dropzone">
+        <div class="file-dropper" (click)="fileInput.click()">
+          @if(imageName()){
+          <div>
+            @if(coverFile || imagePreview()){
+            <div>
+              <img [src]="imagePreview()" alt="Image Preview" class="image-preview" />
+              <p>
+                <span class="image-name">{{ imageName() }}</span> ({{
+                fileSize()
+                }} KB)
+              </p>
+            </div>
+            }
+          </div>
+          }
+          @else{
+          <mat-icon>upload</mat-icon>
+          <p>{{ 'Translate.add_cover.msg' | translate }}</p>
+          }
+        </div>
+      </div>
+    </div>
+    <div>
+      <button mat-button-flat [disabled]="(!coverFile)" class="primary" (click)="newCover()">{{ 'Translate.upload' | translate }}</button>
+      <button mat-button-flat class="warn" (click)="removeImage()">{{ 'Translate.upload_reset' | translate }}</button>
+    </div>
+  }
+    }
+  </div>
+
+  <div class="covers">
+    @if(this.bibRec && loading == false){
+    <hr class="dotted">
+    <div>
+      <div id="limo-link">
+        <button class="primary-reverse"><a  href={{limo_link}} target="_blank">Limo <mat-icon style="display:inline">open_in_new</mat-icon></a></button>
+      <h2>{{ 'Translate.available_covers' | translate }}</h2>
+      </div>
+    @if((currCovers|keyvalue).length > 0){
+    <table>
+      @for (coverSource of currCovers|keyvalue; track coverSource.key){
+      <colgroup>
+        <col width="20%">
+        <col width="50%">
+        <col width="20%">
+        <col width="10%">
+      </colgroup>
+      <tr>
+        <th colspan="4">{{(coverSource.key == 'covers') ? 'Local covers' : coverSource.key}}</th>
+      </tr>
+      @for(cover of coverSource.value; track cover.cover_code){
+      <tr>
+        <td><img src={{cover.cover_url}} height="50" (click)=showFullCover(cover)></td>
+        <td>{{cover.id_type}}</td>
+        <td>{{cover.id_code}}</td>        
+        @if(coverSource.key=="covers"){
+          <td><mat-icon class="delete-icon" (click)="checkDeleteCover(cover)">delete</mat-icon></td>
+        }
+      </tr>
+      }
+      }
+    </table>
+    }
+    @else{
+    <div class="no_content">
+      <p>{{ 'Translate.no_covers' | translate }}</p>
+    </div>
+    }
+    </div>
+    }
+  </div>
