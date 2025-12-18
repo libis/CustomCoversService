@@ -1,30 +1,50 @@
 {
-    "Translate": {
-        "welcome": "Welcome to the custom covers service",
-        "mms_id": "MMS ID",
-        "by": "By",
-        "rec_reset": "New",
-        "new_search_msg": "To start a new cover upload, please enter record MMS ID:",
-        "start": "Start",
-        "CZ_unsupported": "Cover upload is (currently) not supported for CZ records",
-        "add_cover": {
-            "title": "Cover upload",
-            "msg": "Click to select cover image:"
-        },
-        "upload": "Upload",
-        "upload_reset": "Cancel",
-        "available_covers": "Available covers:",
-        "no_covers": "There are no covers available for this record (yet)",
-        "confirm_del": {
-            "title": "Confirm cover deletion",
-            "msg": "Are you sure you want to delete this cover?"
-        },
-        "confirm_repl": {
-            "title": "Confirm cover upload",
-            "msg": "There is already a custom cover registered for this record. Are you sure you want to replace this cover?"
-        },
-        "yes": "Yes",
-        "no": "No",
-        "close": "Close"
+  "Translate": {
+    "welcome": "Welcome to the custom covers service",
+    "mms_id": "MMS ID",
+    "by": "By",
+    "rec_reset": "New",
+    "new_search_msg": "To start a new cover upload, please enter record MMS ID:",
+    "start": "Start",
+    "CZ_unsupported": "Cover upload is (currently) not supported for CZ records",
+    "cover_disclaimer": "By uploading a cover image, you confirm that you hold the necessary rights and permissions to share and use the image in a library context.",
+    "add_cover": {
+      "title": "Cover upload",
+      "msg": "Click to select cover image:"
+    },
+    "upload": "Upload",
+    "upload_reset": "Cancel",
+    "available_covers": "Available covers:",
+    "no_covers": "There are no covers available for this record (yet)",
+    "confirm_del": {
+      "title": "Confirm cover deletion",
+      "msg": "Are you sure you want to delete this cover?"
+    },
+    "confirm_repl": {
+      "title": "Confirm cover upload",
+      "msg": "There is already a custom cover registered for this record. Are you sure you want to replace this cover?"
+    },
+    "yes": "Yes",
+    "no": "No",
+    "close": "Close",
+    "msg": {
+      "alma_update": "Alma record updated",
+      "new_cover": "New cover uploaded successfully",
+      "delete_cover": "Cover was deleted successfully"
+    },
+    "warn": {
+      "not_image": "Only image files are allowed",
+      "cancel_cover_upload": "Cover upload cancelled",
+      "cancel_cover_delete": "Cover delete cancelled"
+    },
+    "error": {
+      "alma_not_found": "Could not retrieve bib record - please check MMS ID and try again",
+      "cover_too_large": "Cover image exceeds file size limit (1MB)",
+      "get_covers": "Could not retrieve list of current covers",
+      "alma_update": "Could not update Alma record",
+      "no_selection": "No file selected",
+      "new_cover": "An error occurred while uploading the new cover. Please retry",
+      "delete_cover": "Could not delete cover"
     }
+  }
 }

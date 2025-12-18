@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { BibIdentifiers } from './interfaces/bibrec.interface';
+import { Observable, throwError } from 'rxjs';
+import { catchError, delay, retry, retryWhen, scan } from 'rxjs/operators';
+import { BibRec, BibIdentifiers } from './interfaces/bibrec.interface';
 import { Cover } from './models/cover';
 import { Settings } from './models/settings';
 
@@ -20,7 +21,7 @@ export class CoverService {
     private configService: CloudAppConfigService,
     private http: HttpClient
   ) {
-    console.log('Starting oninit of coverservice')
+    //console.log('Starting oninit of coverservice')
     // Load general Alma config
     this.restService.call<any>("/almaws/v1/conf/general").subscribe(
       genConfig => {
@@ -29,10 +30,10 @@ export class CoverService {
         const inst_codes = Array.from(this.inst.full.matchAll(/(.*)_(.*)/g))[0];
         this.inst.tenant = inst_codes[1];
         this.inst.inst = inst_codes[2];
-        console.log('Finished loading settings: ', this.inst);
+        //console.log('Finished loading settings: ', this.inst);
       },
       err => {
-        console.log("An error occurred while loading config");
+        console.error("An error occurred while loading config");
       }
     );
 
@@ -41,7 +42,7 @@ export class CoverService {
       this.config = conf;
     },
       err => {
-        console.log("An error occurred while loading config");
+      console.error("An error occurred while loading config");
       }
     );
   }
@@ -49,7 +50,32 @@ export class CoverService {
   // Method to collect a single cover by id - uses resolver service
   getCover(cover: any): Observable<any> {
     const url = `${this.config.resolver_service}${cover.id_code}/thumbnail?set=${cover.source}&inst=${this.config.resolver_key};`
-    return this.http.get(url);
+    return this.http.get(url).pipe(
+          retryWhen((errors) =>
+            errors.pipe(
+              scan((retryCount, error) => {
+                let errorValue = typeof error === "function" ? error() : error;
+                console.log(`Error encountered: ${errorValue.status} - ${errorValue.message}`);
+                if (retryCount >= 3) {
+                  console.log("Max retries reached. Throwing error.");
+                  throw error;
+                } else if (errorValue.status < 500) {
+                  console.log("Error not eligible for retry. Throwing error.");
+                  throw error;
+                }
+                console.log(`Retrying... Attempt #${retryCount + 1}`);
+                return retryCount + 1;
+              }, 0),
+              delay(2000))
+            )
+        );    
+    /*.pipe(
+      retry(3),
+      catchError((error) => {
+        console.error('Error fetching covers:', error);
+        return throwError(() => new Error('Failed to fetch covers from resolver service'));
+      })  
+    );*/
   }
 
   // Method to collect complete set of available covers for a given record - uses resolver service
@@ -58,19 +84,45 @@ export class CoverService {
     // Filter out empty arrays
     let id_set_filtered = Object.fromEntries(
       Object.entries(bib_ids).filter(([k, v]) => v.length > 0))
-    console.log('Filtered ID set: ', id_set_filtered);
+    //console.log('Filtered ID set: ', id_set_filtered);
 
     // Collect covers overview from resolver service
     let url = `${this.config.resolver_service}search?query=${JSON.stringify(id_set_filtered)}&set=covers&inst=${this.config.resolver_key}`;
-    console.log('url: ', encodeURI(url));
+    //console.log('url: ', encodeURI(url));
 
-    return this.http.get(url);
+    return this.http.get(url).pipe(
+          retryWhen((errors) =>
+            errors.pipe(
+              scan((retryCount, error) => {
+                let errorValue = typeof error === "function" ? error() : error;
+                console.log(`Error encountered: ${errorValue.status} - ${errorValue.message}`);
+                if (retryCount >= 3) {
+                  console.log("Max retries reached. Throwing error.");
+                  throw error;
+                } else if (errorValue.status < 500) {
+                  console.log("Error not eligible for retry. Throwing error.");
+                  throw error;
+                }
+                console.log(`Retrying... Attempt #${retryCount + 1}`);
+                return retryCount + 1;
+              }, 0),
+              delay(2000))
+            )
+        );
+    
+    /*.pipe(
+      retry(3),
+      catchError((error) => {
+        console.error('Error fetching covers:', error);
+        return throwError(() => new Error('Failed to fetch covers from resolver service'));
+      })  
+    );*/
   }
 
   // Method to delete existing cover - uses coverserver API
   deleteCover(id_type: string, id_code: string, authToken: string): Observable<any> {
     const url = `${this.config.cover_loader}${this.inst.tenant}/${this.inst.full}`;
-    console.log('Delete URL: ', url);
+    //('Delete URL: ', url);
 
     // Compile call options parameters
     const options = {
@@ -110,9 +162,9 @@ export class CoverService {
     return this.http.post(url, coverData, options);
   }
 
-  updateRecord(authToken: string, mmsid: string, coverSet: any) {
+  updateRecord(authToken: string, mmsid: string, coverSet: any): Observable<BibRec> {
     const url = `${this.config.record_service}`;
-    console.log('Update URL:', url);
+    //console.log('Update URL:', url);
 
     const recData = new FormData();
     recData.append('mmsid', mmsid);
@@ -124,8 +176,6 @@ export class CoverService {
       }
     }
 
-    return this.http.post(url, recData, options);
+    return this.http.post<BibRec>(url, recData, options);
   }
-
-
 }

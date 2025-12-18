@@ -17,7 +17,11 @@
     <mat-card id="rec_metadata">
       <mat-card-header class="header-box">
         <mat-card-title-group>
-          <mat-card-title>{{ 'Translate.mms_id' | translate }}: {{bibRec.mms_id}}</mat-card-title>
+          <mat-card-title>{{ 'Translate.mms_id' | translate }}: {{mmsID}}</mat-card-title>
+
+          @if(mmsID != bibRec.mms_id){
+            <mat-card-subtitle>({{bibRec.mms_id}})</mat-card-subtitle>
+          }
 
           @if(bibRec.mms_id_NZ){
           <mat-card-subtitle>({{bibRec.mms_id_NZ}})</mat-card-subtitle>
@@ -97,6 +101,9 @@
     <div>
       <button mat-button-flat [disabled]="(!coverFile)" class="primary" (click)="newCover()">{{ 'Translate.upload' | translate }}</button>
       <button mat-button-flat class="warn" (click)="removeImage()">{{ 'Translate.upload_reset' | translate }}</button>
+    </div>
+    <div id="disclaimer">
+      <p><b>{{ 'Translate.cover_disclaimer' | translate }}</b></p>
     </div>
   }
     }

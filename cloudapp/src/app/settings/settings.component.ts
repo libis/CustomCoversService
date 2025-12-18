@@ -45,17 +45,17 @@ export class SettingsComponent implements OnInit {
     this.loading = true;
     // Ensure that base urls end in / - applies to cover loader and resolver service
     for (let conf of ['cover_loader', 'resolver_service']) {
-      if (!this.configForm.value['cover_loader'].endsWith('/')) {
-        this.configForm.patchValue({ 'cover_loader': `${this.configForm.value['cover_loader']}/` });
+      if (!this.configForm.value[conf].endsWith('/')) {
+        this.configForm.patchValue({ conf: `${this.configForm.value[conf]}/` });
       }
-      if (!this.configForm.value['resolver_service'].endsWith('/')) {
-        this.configForm.patchValue({ 'resolver_service': `${this.configForm.value['resolver_service']}/` });
-      }
+      //if (!this.configForm.value['resolver_service'].endsWith('/')) {
+       // this.configForm.patchValue({ 'resolver_service': `${this.configForm.value['resolver_service']}/` });
+     // }
     }
 
     this.configService.set(this.configForm.value).subscribe(
       response => {
-        this.alert.success('Configuration succesfully saved');
+        this.alert.success('Configuration updated');
         this.configForm.markAsPristine();
       },
       err => {

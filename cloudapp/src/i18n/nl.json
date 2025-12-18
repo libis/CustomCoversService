@@ -1,30 +1,50 @@
 {
-    "Translate": {
-        "welcome": "Welkom bij de custom covers service",
-        "mms_id": "MMS ID",
-        "by": "Door",
-        "rec_reset": "Nieuw",
-        "new_search_msg": "Om een nieuwe cover upload te starten, geef het MMS ID van het record in:",
-        "start": "Start",
-        "CZ_unsupported": "Cover upload is (momenteel) niet ondersteund voor CZ records",
-        "add_cover": {
-            "title": "Upload cover",
-            "msg": "Klik om een coverafbeelding te selecteren:"
-        },
-        "upload": "Uploaden",
-        "upload_reset": "Annuleren",
-        "available_covers": "Beschikbare covers:",
-        "no_covers": "Er zijn (nog) geen covers beschikbaar voor dit record",
-        "confirm_del": {
-            "title": "Bevestig verwijdering cover",
-            "msg": "Weet u zeker dat u deze cover wilt verwijderen?"
-        },
-        "confirm_repl": {
-            "title": "Bevestig vervanging cover",
-            "msg": "Er is al een cover geregistreerd voor dit record. Bent u zeker dat u deze cover wilt vervangen?"
-        },
-        "yes": "Ja",
-        "no": "Nee",
-        "close": "Sluiten"
+  "Translate": {
+    "welcome": "Welkom bij de custom covers service",
+    "mms_id": "MMS ID",
+    "by": "Door",
+    "rec_reset": "Nieuw",
+    "new_search_msg": "Om een nieuwe cover upload te starten, geef het MMS ID van het record in:",
+    "start": "Start",
+    "CZ_unsupported": "Cover upload is (momenteel) niet ondersteund voor CZ records",
+    "cover_disclaimer": "Door een afbeelding te uploaden, bevestig je over de nodige rechten en toestemmingen te beschikken om deze afbeelding te delen en te gebruiken in een bibliotheekcontext.",
+    "add_cover": {
+      "title": "Upload cover",
+      "msg": "Klik om een coverafbeelding te selecteren:"
+    },
+    "upload": "Uploaden",
+    "upload_reset": "Annuleren",
+    "available_covers": "Beschikbare covers:",
+    "no_covers": "Er zijn (nog) geen covers beschikbaar voor dit record",
+    "confirm_del": {
+      "title": "Bevestig verwijdering cover",
+      "msg": "Weet u zeker dat u deze cover wilt verwijderen?"
+    },
+    "confirm_repl": {
+      "title": "Bevestig vervanging cover",
+      "msg": "Er is al een cover geregistreerd voor dit record. Bent u zeker dat u deze cover wilt vervangen?"
+    },
+    "yes": "Ja",
+    "no": "Nee",
+    "close": "Sluiten",
+    "msg": {
+      "alma_update": "Alma record werd geüpdatet",
+      "new_cover": "Nieuwe cover is opgeladen",
+      "delete_cover": "Cover werd verwijderd"
+    },
+    "warn": {
+      "not_image": "Enkel afbeeldingen zijn toegestaan ",
+      "cancel_cover_upload": "Cover upload geannuleerd",
+      "cancel_cover_delete": "Cover delete geannuleerd"
+    },
+    "error": {
+      "alma_not_found": "Het Alma record kon niet geladen worden - controleer het MMS ID en probeer opnieuw",
+      "cover_too_large": "Cover overschrijdt de bestandslimiet (1MB)",
+      "get_covers": "Lijst met huidige covers kon niet opgehaald worden",
+      "alma_update": "Alma record update mislukt",
+      "no_selection": "Geen bestand geselecteerd",
+      "new_cover": "Er is een fout opgetreden bij het uploaden. Probeer opnieuw",
+      "delete_cover": "Cover kon niet verwijderd worden"
     }
+  }
 }
