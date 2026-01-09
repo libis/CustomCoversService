@@ -16,6 +16,7 @@
     "upload_reset": "Annuleren",
     "available_covers": "Beschikbare covers:",
     "no_covers": "Er zijn (nog) geen covers beschikbaar voor dit record",
+    "local_covers": "Lokale covers",
     "confirm_del": {
       "title": "Bevestig verwijdering cover",
       "msg": "Weet u zeker dat u deze cover wilt verwijderen?"
@@ -29,18 +30,18 @@
     "close": "Sluiten",
     "msg": {
       "alma_update": "Alma record werd geüpdatet",
-      "new_cover": "Nieuwe cover is opgeladen",
-      "delete_cover": "Cover werd verwijderd"
+      "new_cover": "Nieuwe cover opgeladen",
+      "delete_cover": "Cover verwijderd"
     },
     "warn": {
-      "not_image": "Enkel afbeeldingen zijn toegestaan ",
+      "not_image": "Enkel afbeeldingen zijn toegelaten",
       "cancel_cover_upload": "Cover upload geannuleerd",
       "cancel_cover_delete": "Cover delete geannuleerd"
     },
     "error": {
       "alma_not_found": "Het Alma record kon niet geladen worden - controleer het MMS ID en probeer opnieuw",
       "cover_too_large": "Cover overschrijdt de bestandslimiet (1MB)",
-      "get_covers": "Lijst met huidige covers kon niet opgehaald worden",
+      "get_covers": "Actuele lijst met covers kon niet opgehaald worden",
       "alma_update": "Alma record update mislukt",
       "no_selection": "Geen bestand geselecteerd",
       "new_cover": "Er is een fout opgetreden bij het uploaden. Probeer opnieuw",

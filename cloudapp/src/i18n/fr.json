@@ -1,28 +1,29 @@
 {
   "Translate": {
-    "welcome": "Bienvenue dans le service de couvertures",
+    "welcome": "Bienvenue dans le service d'images de couverture",
     "mms_id": "ID MMS",
     "by": "Par",
     "rec_reset": "Nouvelle recherche",
-    "new_search_msg": "Pour enregistrer un nouvel image de couverture, entrez l'identifiant MMS du document :",
+    "new_search_msg": "Pour enregistrer une nouvelle image de couverture, entrez l'identifiant MMS du document:",
     "start": "Démarrer",
     "add_cover": {
-      "title": "Enregistrer un nouvel image de couverture :",
-      "msg": "Cliquez pour sélectionner l'image de couverture :"
+      "title": "Enregistrer une nouvelle image de couverture:",
+      "msg": "Cliquez pour sélectionner l'image de couverture:"
     },
     "CZ_unsupported": "L'enregistrement d'une image de couverture n'est (actuellement) pas supporté pour les documents CZ",
-    "cover_disclaimer": "En enregistrant une image, vous confirmez que vous disposez des droits et permissions nécessaires pour partager et utiliser cet image dans un contexte bibliothéquaire.",
+    "cover_disclaimer": "En enregistrant une image, vous confirmez que vous disposez des droits et permissions nécessaires pour partager et utiliser cette image dans un contexte bibliothécaire.",
     "upload": "Enregistrer l'image",
     "upload_reset": "Annuler",
-    "available_covers": "Images de couverture disponibles :",
+    "available_covers": "Images de couverture disponibles:",
     "no_covers": "Aucune image de couverture n'est disponible pour ce document",
+    "local_covers": "Images locales",
     "confirm_del": {
       "title": "Confirmez suppression",
-      "msg": "Êtes-vous sûr que vous voulez supprimer cette image de couverture ?"
+      "msg": "Êtes-vous sûr que vous voulez supprimer cette image de couverture?"
     },
     "confirm_repl": {
       "title": "Confirmez remplacement",
-      "msg": "Un image de couverture est déjà enregistré pour ce document. Êtes-vous sûr que vous voulez remplacer cet image de couverture ?"
+      "msg": "Une image de couverture est déjà enregistrée pour ce document. Êtes-vous sûr que vous voulez remplacer cette image de couverture?"
     },
     "yes": "Oui",
     "no": "Non",
@@ -38,9 +39,9 @@
       "cancel_cover_delete": "Suppression d'image de couverture annulée"
     },
     "error": {
-      "alma_not_found": "La notice bibliographique ne pouvait pas être retrouvée - verifiez l'ID MMS et réessayez",
+      "alma_not_found": "La notice bibliographique ne pouvait pas être retrouvée dans Alma - verifiez l'ID MMS et réessayez",
       "cover_too_large": "L'image de couverture dépasse la limite de 1 Mo",
-      "get_covers": "La liste des images de couverture actuelles ne pouvait pas être récupérée",
+      "get_covers": "La liste actuelle d'images de couverture ne pouvait pas être récupérée",
       "alma_update": "La notice bibliographique ne pouvait pas être mise à jour dans Alma",
       "no_selection": "Aucun fichier sélectionné",
       "new_cover": "Une erreur est survenue lors de l'enregistrement de la nouvelle image de couverture. Veuillez réessayer",

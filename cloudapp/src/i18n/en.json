@@ -16,6 +16,7 @@
     "upload_reset": "Cancel",
     "available_covers": "Available covers:",
     "no_covers": "There are no covers available for this record (yet)",
+    "local_covers": "Local covers",
     "confirm_del": {
       "title": "Confirm cover deletion",
       "msg": "Are you sure you want to delete this cover?"
@@ -30,7 +31,7 @@
     "msg": {
       "alma_update": "Alma record updated",
       "new_cover": "New cover uploaded successfully",
-      "delete_cover": "Cover was deleted successfully"
+      "delete_cover": "Cover deleted successfully"
     },
     "warn": {
       "not_image": "Only image files are allowed",
@@ -38,9 +39,9 @@
       "cancel_cover_delete": "Cover delete cancelled"
     },
     "error": {
-      "alma_not_found": "Could not retrieve bib record - please check MMS ID and try again",
+      "alma_not_found": "Could not retrieve the bibliographic record from Alma - please check the MMS ID and try again",
       "cover_too_large": "Cover image exceeds file size limit (1MB)",
-      "get_covers": "Could not retrieve list of current covers",
+      "get_covers": "Could not retrieve current list of covers",
       "alma_update": "Could not update Alma record",
       "no_selection": "No file selected",
       "new_cover": "An error occurred while uploading the new cover. Please retry",
