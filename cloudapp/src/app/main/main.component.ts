@@ -40,6 +40,7 @@ export class MainComponent implements OnInit, OnDestroy {
   // Flow
   loading: boolean = false;
   update: boolean = false;
+  covers_loaded: boolean = false;
 
   // Settings
   inst: string = "";
@@ -50,7 +51,7 @@ export class MainComponent implements OnInit, OnDestroy {
   // Record related data
   mmsID: string = "";
   bibRec: BibRec | null = null;
-  bib_ids: BibIdentifiers = { 'mmsid': "" };
+  bib_ids: BibIdentifiers = { mmsid: "" };
   limo_link: string = "";
 
   // Covers data
@@ -167,6 +168,21 @@ export class MainComponent implements OnInit, OnDestroy {
     }
   }
 
+  // Method to clear current bib record and related data
+  clear_bibrec() {
+    this.mmsID = "";
+    this.bibRec = null;
+    this.bib_ids = { mmsid: "" };
+    this.limo_link = "";
+    this.update = false;
+    this.covers_loaded = false;
+    this.currCovers = {};
+    this.bibCovers = {
+      curr_IDs: {},
+      active_IDs: {},
+    };
+  }
+
   // Method to collect all covers currently available for the record
   getCoverOverview() {
     this.loading = true;
@@ -192,11 +208,15 @@ export class MainComponent implements OnInit, OnDestroy {
             this.currCovers[cover.source].push(parsed_cover);
           }
         }
+        this.covers_loaded = true;
         // Check if record update is needed
         this.checkRecUpdate();
       },
       (err) => {
-        this.alert.error(this.translate.instant("Translate.error.get_covers"));
+        /*this.alert.error(this.translate.instant("Translate.error.get_covers"), {
+          autoClose: false,
+        });*/
+        this.covers_loaded = false;
         this.loading = false;
         console.log(err);
       },
@@ -209,9 +229,10 @@ export class MainComponent implements OnInit, OnDestroy {
   // Methods to manage coverserver controlfields in the Alma record
   // Method to check if cover control fields need to be updated in the bib record
   checkRecUpdate(): void {
-    console.log("Current cover data: ", this.bibCovers);
+    console.log("Alma cover data: ", this.bibCovers.active_IDs);
     let update_rec = false;
     let activated: { [key: string]: string[] } = {};
+    console.log("Resolver cover data: ", activated);
 
     // Collect activated cover IDs
     for (const source in this.currCovers) {
@@ -226,11 +247,9 @@ export class MainComponent implements OnInit, OnDestroy {
     }
 
     // Verify LIBISnet cover status
-    if (
-      "covers" in this.bibCovers.active_IDs &&
-      !("covers" in this.currCovers)
-    ) {
+    if ("covers" in this.bibCovers.active_IDs && !("covers" in this.currCovers)) {
       update_rec = true;
+      console.log("LIBISnet cover deprecated - update needed");
     }
 
     // Verify if list of active IDs matches current activation settings (only sources present in currCovers are taken into account)
@@ -240,12 +259,14 @@ export class MainComponent implements OnInit, OnDestroy {
         // Check if all activated IDs are in list of active IDs
         for (const cover_id of activated[source]) {
           if (!this.bibCovers.active_IDs[source].includes(cover_id)) {
+            console.log("New external cover detected - update needed: ", cover_id);
             update_rec = true;
           }
         }
         // Check if all active IDs are in the list of activated IDs
         for (const cover_id of this.bibCovers.active_IDs[source]) {
           if (!activated[source].includes(cover_id)) {
+            console.log("Deprecated external cover detected - update needed: ", cover_id);
             update_rec = true;
           }
         }
@@ -255,8 +276,11 @@ export class MainComponent implements OnInit, OnDestroy {
     }
 
     console.log("Update needed: ", update_rec);
-    if ((update_rec == true) && (this.bibRec != null)) {
-      let recID:string = ((this.bibRec.mms_id_NZ != undefined) && (this.bibRec.mms_id_NZ != '')) ? this.bibRec.mms_id_NZ : this.bibRec.mms_id; 
+    if (update_rec == true && this.bibRec != null) {
+      let recID: string =
+        this.bibRec.mms_id_NZ != undefined && this.bibRec.mms_id_NZ != ""
+          ? this.bibRec.mms_id_NZ
+          : this.bibRec.mms_id;
       this.coverService
         .updateRecord(this.authToken, recID, activated)
         .subscribe(
@@ -300,7 +324,7 @@ export class MainComponent implements OnInit, OnDestroy {
       } else {
         this.alert.error(
           this.translate.instant("Translate.error.cover_too_large"),
-          { autoClose: true}
+          { autoClose: true }
         );
         this.removeImage();
       }
@@ -315,6 +339,7 @@ export class MainComponent implements OnInit, OnDestroy {
     this.imageName.set("");
     this.fileSize.set(0);
     this.imagePreview.set("");
+    this.selectedFile = null;
   }
 
   // Method to upload a new cover
@@ -326,32 +351,31 @@ export class MainComponent implements OnInit, OnDestroy {
     }
 
     if (this.bibRec != null) {
-    //console.log('Starting file upload');
-    this.loading = true;
-    let recID:string = ((this.bibRec.mms_id_NZ != undefined) && (this.bibRec.mms_id_NZ != '')) ? this.bibRec.mms_id_NZ : this.bibRec.mms_id;
-    console.log('Sending cover with mms id: ', recID);
-    const newCover = new Cover(
-      this.coverFile,
-      "mmsid",
-      recID
-    );
+      //console.log('Starting file upload');
+      this.loading = true;
+      let recID: string =
+        this.bibRec.mms_id_NZ != undefined && this.bibRec.mms_id_NZ != ""
+          ? this.bibRec.mms_id_NZ
+          : this.bibRec.mms_id;
+      console.log("Sending cover with mms id: ", recID);
+      const newCover = new Cover(this.coverFile, "mmsid", recID);
 
-    this.coverService.uploadCover(newCover, this.authToken).subscribe(
-      (response) => {
-        this.loading = false;
-        this.alert.success(this.translate.instant("Translate.msg.new_cover"));
-      },
-      (err) => {
-        this.loading = false;
-        this.alert.error(this.translate.instant("Translate.error.new_cover"));
-      },
-      () => {
-        this.removeImage();
-        this.getCoverOverview();
-      }
-    );
+      this.coverService.uploadCover(newCover, this.authToken).subscribe(
+        (response) => {
+          this.loading = false;
+          this.alert.success(this.translate.instant("Translate.msg.new_cover"));
+        },
+        (err) => {
+          this.loading = false;
+          this.alert.error(this.translate.instant("Translate.error.new_cover"));
+        },
+        () => {
+          this.removeImage();
+          this.getCoverOverview();
+        }
+      );
+    }
   }
-}
 
   // Method to delete existing covers (only for local covers)
   deleteCover(id_type: string, id_code: string) {
@@ -375,12 +399,14 @@ export class MainComponent implements OnInit, OnDestroy {
 
   // General reset
   reset() {
-    this.mmsID = "";
-    this.bibRec = null;
-    this.bib_ids = { mmsid: "" };
-    this.currCovers = {};
-    this.coverFile = null;
-    this.limo_link = "";
+    // Reset flow variables
+    this.loading = false;
+
+    // Reset record data
+    this.clear_bibrec();
+
+    // Clear upload zone
+    this.removeImage();
   }
 
   ngOnDestroy(): void {}

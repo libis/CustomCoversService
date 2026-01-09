@@ -20,7 +20,7 @@
           <mat-card-title>{{ 'Translate.mms_id' | translate }}: {{mmsID}}</mat-card-title>
 
           @if(mmsID != bibRec.mms_id){
-            <mat-card-subtitle>({{bibRec.mms_id}})</mat-card-subtitle>
+          <mat-card-subtitle>({{bibRec.mms_id}})</mat-card-subtitle>
           }
 
           @if(bibRec.mms_id_NZ){
@@ -63,12 +63,12 @@
   <div class="cover_upload">
     <!--- If record has been loaded, display record metadata --->
     @if (bibRec && loading == false){
-          <hr class="dotted">
+    <hr class="dotted">
     @if (bibRec.CZ){
-      <div class="no_content">
+    <div class="no_content">
       <p>{{ 'Translate.CZ_unsupported' | translate }}</p>
-      </div>
-    } 
+    </div>
+    }
     @else{
 
     <h4>{{ 'Translate.add_cover.title' | translate }}</h4>
@@ -99,13 +99,14 @@
       </div>
     </div>
     <div>
-      <button mat-button-flat [disabled]="(!coverFile)" class="primary" (click)="newCover()">{{ 'Translate.upload' | translate }}</button>
+      <button mat-button-flat [disabled]="(!coverFile)" class="primary" (click)="newCover()">{{ 'Translate.upload' |
+        translate }}</button>
       <button mat-button-flat class="warn" (click)="removeImage()">{{ 'Translate.upload_reset' | translate }}</button>
     </div>
     <div id="disclaimer">
       <p><b>{{ 'Translate.cover_disclaimer' | translate }}</b></p>
     </div>
-  }
+    }
     }
   </div>
 
@@ -114,39 +115,53 @@
     <hr class="dotted">
     <div>
       <div id="limo-link">
-        <button class="primary-reverse"><a  href={{limo_link}} target="_blank">Limo <mat-icon style="display:inline">open_in_new</mat-icon></a></button>
-      <h2>{{ 'Translate.available_covers' | translate }}</h2>
+        <button class="primary-reverse"><a href={{limo_link}} target="_blank">Limo <mat-icon
+              style="display:inline">open_in_new</mat-icon></a></button>
+        <h2>{{ 'Translate.available_covers' | translate }}</h2>
       </div>
-    @if((currCovers|keyvalue).length > 0){
-    <table>
-      @for (coverSource of currCovers|keyvalue; track coverSource.key){
-      <colgroup>
-        <col width="20%">
-        <col width="50%">
-        <col width="20%">
-        <col width="10%">
-      </colgroup>
-      <tr>
-        <th colspan="4">{{(coverSource.key == 'covers') ? 'Local covers' : coverSource.key}}</th>
-      </tr>
-      @for(cover of coverSource.value; track cover.cover_code){
-      <tr>
-        <td><img src={{cover.cover_url}} height="50" (click)=showFullCover(cover)></td>
-        <td>{{cover.id_type}}</td>
-        <td>{{cover.id_code}}</td>        
-        @if(coverSource.key=="covers"){
+      @if(covers_loaded){
+      @if((currCovers|keyvalue).length > 0){
+      <table>
+        @for (coverSource of currCovers|keyvalue; track coverSource.key){
+        <colgroup>
+          <col width="20%">
+          <col width="50%">
+          <col width="20%">
+          <col width="10%">
+        </colgroup>
+        <tr>
+          @if(coverSource.key=="covers"){
+          <th colspan="4">{{ 'Translate.local_covers' | translate }}</th>
+          }
+          @else{
+          <th colspan="4">{{coverSource.key | titlecase}}</th>
+          }
+        </tr>
+        @for(cover of coverSource.value; track cover.cover_code){
+        <tr>
+          <td><img src={{cover.cover_url}} height="50" (click)=showFullCover(cover)></td>
+          <td>{{cover.id_type}}</td>
+          <td>{{cover.id_code}}</td>
+          @if(coverSource.key=="covers"){
           <td><mat-icon class="delete-icon" (click)="checkDeleteCover(cover)">delete</mat-icon></td>
+          }
+        </tr>
         }
-      </tr>
+        }
+      </table>
       }
+      @else{
+      <div class="no_content">
+        <p>{{ 'Translate.no_covers' | translate }}</p>
+      </div>
       }
-    </table>
-    }
-    @else{
-    <div class="no_content">
-      <p>{{ 'Translate.no_covers' | translate }}</p>
-    </div>
-    }
+
+      }
+      @else {
+      <div class="no_content">
+        <p>{{ 'Translate.error.get_covers' | translate }}</p>
+      </div>
+      }
     </div>
     }
   </div>
