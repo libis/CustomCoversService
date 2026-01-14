@@ -127,6 +127,7 @@ export class MainComponent implements OnInit, OnDestroy {
 
   // After input of bib MMS ID, collect bib record - includes additional parsing and calculations
   loadBibRecord() {
+    //("Entering loadBibRecord with MMS ID: ", this.mmsID);
     this.loading = true;
     this.alert.clear();
 
@@ -134,15 +135,17 @@ export class MainComponent implements OnInit, OnDestroy {
       (bib) => {
         // Collect and process bib record
         this.processBibRecord(bib);
-
+        //console.log("Loaded bib record");
         // Trigger call to collect available covers
         this.getCoverOverview();
+  
       },
       (error) => {
         this.alert.error(
           this.translate.instant("Translate.error.alma_not_found"),
           { autoClose: false }
         );
+        //console.log("Load bib record failed");
         this.loading = false;
       }
     );
@@ -185,6 +188,7 @@ export class MainComponent implements OnInit, OnDestroy {
 
   // Method to collect all covers currently available for the record
   getCoverOverview() {
+    //console.log("Entering getCoverOverview with IDs");
     this.loading = true;
     this.coverService.getAllCovers(this.bib_ids).subscribe(
       (covers) => {
@@ -200,7 +204,7 @@ export class MainComponent implements OnInit, OnDestroy {
             cover_code: cover.id_code,
             is_active: true,
           };
-          parsed_cover.cover_url = `${this.config.resolver_service}${cover.id_code}/thumbnail?set=${cover.source}&inst=${this.config.resolver_key}`;
+          parsed_cover.cover_url = `${this.config.resolver_service}${cover.id_code}/thumbnail?set=${cover.source}&inst=${this.config.resolver_key}&from_cache=0`;
 
           if (!(cover.source in this.currCovers)) {
             this.currCovers[cover.source] = [parsed_cover];
@@ -209,6 +213,7 @@ export class MainComponent implements OnInit, OnDestroy {
           }
         }
         this.covers_loaded = true;
+        //console.log("Finished loading cover list");
         // Check if record update is needed
         this.checkRecUpdate();
       },
@@ -217,11 +222,12 @@ export class MainComponent implements OnInit, OnDestroy {
           autoClose: false,
         });*/
         this.covers_loaded = false;
+        //console.log("Cover list loading failed");
         this.loading = false;
         console.log(err);
       },
       () => {
-        this.loading = false;
+        //this.loading = false;
       }
     );
   }
@@ -229,10 +235,12 @@ export class MainComponent implements OnInit, OnDestroy {
   // Methods to manage coverserver controlfields in the Alma record
   // Method to check if cover control fields need to be updated in the bib record
   checkRecUpdate(): void {
-    console.log("Alma cover data: ", this.bibCovers.active_IDs);
+    //console.log("Entering checkRecUpdate");
+    this.loading = true;
+    //console.log("Alma cover data: ", this.bibCovers.active_IDs);
     let update_rec = false;
     let activated: { [key: string]: string[] } = {};
-    console.log("Resolver cover data: ", activated);
+    //console.log("Resolver cover data: ", activated);
 
     // Collect activated cover IDs
     for (const source in this.currCovers) {
@@ -249,7 +257,7 @@ export class MainComponent implements OnInit, OnDestroy {
     // Verify LIBISnet cover status
     if ("covers" in this.bibCovers.active_IDs && !("covers" in this.currCovers)) {
       update_rec = true;
-      console.log("LIBISnet cover deprecated - update needed");
+      //console.log("LIBISnet cover deprecated - update needed");
     }
 
     // Verify if list of active IDs matches current activation settings (only sources present in currCovers are taken into account)
@@ -259,14 +267,14 @@ export class MainComponent implements OnInit, OnDestroy {
         // Check if all activated IDs are in list of active IDs
         for (const cover_id of activated[source]) {
           if (!this.bibCovers.active_IDs[source].includes(cover_id)) {
-            console.log("New external cover detected - update needed: ", cover_id);
+            //console.log("New external cover detected - update needed: ", cover_id);
             update_rec = true;
           }
         }
         // Check if all active IDs are in the list of activated IDs
         for (const cover_id of this.bibCovers.active_IDs[source]) {
           if (!activated[source].includes(cover_id)) {
-            console.log("Deprecated external cover detected - update needed: ", cover_id);
+            //console.log("Deprecated external cover detected - update needed: ", cover_id);
             update_rec = true;
           }
         }
@@ -275,8 +283,9 @@ export class MainComponent implements OnInit, OnDestroy {
       }
     }
 
-    console.log("Update needed: ", update_rec);
+    //console.log("Update needed: ", update_rec);
     if (update_rec == true && this.bibRec != null) {
+      //console.log("Proceeding with record update");
       let recID: string =
         this.bibRec.mms_id_NZ != undefined && this.bibRec.mms_id_NZ != ""
           ? this.bibRec.mms_id_NZ
@@ -294,9 +303,16 @@ export class MainComponent implements OnInit, OnDestroy {
             this.alert.error(
               this.translate.instant("Translate.error.alma_update")
             );
+          },
+          () => {
+            //console.log("Finished record update code");
+            this.loading = false;
           }
         );
     }
+    else { 
+      //console.log("No record update needed - finished checkrecupdate without further action");
+      this.loading = false; }
   }
 
   // Methods to handle file input in the UI
@@ -311,7 +327,7 @@ export class MainComponent implements OnInit, OnDestroy {
 
   // Handler for file preview
   loadPreview() {
-    console.log("Selected file: ", this.coverFile);
+    //("Selected file: ", this.coverFile);
     if (this.coverFile && this.coverFile.type.startsWith("image/")) {
       this.fileSize.set(Math.round(this.coverFile.size / 1024)); // Set file size in KB
       if (this.coverFile.size / Math.pow(1024, 2) < 1) {
@@ -357,7 +373,7 @@ export class MainComponent implements OnInit, OnDestroy {
         this.bibRec.mms_id_NZ != undefined && this.bibRec.mms_id_NZ != ""
           ? this.bibRec.mms_id_NZ
           : this.bibRec.mms_id;
-      console.log("Sending cover with mms id: ", recID);
+      //console.log("Sending cover with mms id: ", recID);
       const newCover = new Cover(this.coverFile, "mmsid", recID);
 
       this.coverService.uploadCover(newCover, this.authToken).subscribe(
@@ -423,9 +439,7 @@ export class MainComponent implements OnInit, OnDestroy {
   newCover(): void {
     // Check if there is already a LIBISnet cover
     if ("covers" in this.currCovers) {
-      console.log(
-        "There is a cover already - doing overwrite check before loading"
-      );
+      //console.log("There is a cover already - doing overwrite check before loading")
       const dialogRef = this.dialog.open(OverwriteConfirmationDialog, {
         data: { currentCover: this.currCovers["covers"][0].cover_url },
       });
@@ -444,7 +458,7 @@ export class MainComponent implements OnInit, OnDestroy {
         }
       );
     } else {
-      console.log("There is no cover yet - uploading cover without check");
+      //console.log("There is no cover yet - uploading cover without check");
       this.uploadCover();
     }
   }
