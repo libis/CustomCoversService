@@ -227,7 +227,7 @@ export class MainComponent implements OnInit, OnDestroy {
         console.log(err);
       },
       () => {
-        //this.loading = false;
+        this.loading = false;
       }
     );
   }
@@ -384,6 +384,7 @@ export class MainComponent implements OnInit, OnDestroy {
         },
         (err) => {
           this.alert.error(this.translate.instant("Translate.error.new_cover"));
+          this.loading = false;
         },
         () => {
           this.removeImage();
