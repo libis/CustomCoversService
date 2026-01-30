@@ -306,7 +306,8 @@ export class MainComponent implements OnInit, OnDestroy {
             this.loading = false;
           },
           () => {
-            //console.log("Finished record update code");            
+            //console.log("Finished record update code");
+            this.loading = false;         
           }
         );
     }
