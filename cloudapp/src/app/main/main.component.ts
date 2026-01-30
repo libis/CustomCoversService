@@ -303,10 +303,10 @@ export class MainComponent implements OnInit, OnDestroy {
             this.alert.error(
               this.translate.instant("Translate.error.alma_update")
             );
+            this.loading = false;
           },
           () => {
-            //console.log("Finished record update code");
-            this.loading = false;
+            //console.log("Finished record update code");            
           }
         );
     }
@@ -340,7 +340,7 @@ export class MainComponent implements OnInit, OnDestroy {
       } else {
         this.alert.error(
           this.translate.instant("Translate.error.cover_too_large"),
-          { autoClose: true }
+          { autoClose: false }
         );
         this.removeImage();
       }
@@ -378,16 +378,15 @@ export class MainComponent implements OnInit, OnDestroy {
 
       this.coverService.uploadCover(newCover, this.authToken).subscribe(
         (response) => {
-          this.loading = false;
           this.alert.success(this.translate.instant("Translate.msg.new_cover"));
+          this.getCoverOverview();
         },
         (err) => {
-          this.loading = false;
           this.alert.error(this.translate.instant("Translate.error.new_cover"));
         },
         () => {
           this.removeImage();
-          this.getCoverOverview();
+          this.loading = false;
         }
       );
     }
