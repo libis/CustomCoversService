@@ -135,17 +135,17 @@ export class MainComponent implements OnInit, OnDestroy {
       (bib) => {
         // Collect and process bib record
         this.processBibRecord(bib);
-        //console.log("Loaded bib record");
         // Trigger call to collect available covers
-        this.getCoverOverview();
-  
+        this.getCoverOverview();  
       },
       (error) => {
         this.alert.error(
           this.translate.instant("Translate.error.alma_not_found"),
           { autoClose: false }
         );
-        //console.log("Load bib record failed");
+        this.loading = false;
+      },
+      () => {
         this.loading = false;
       }
     );
@@ -162,7 +162,6 @@ export class MainComponent implements OnInit, OnDestroy {
       // Calculate Discovery view link
       this.limo_link = this.config.view_url.replace(
         "[rec_id]",
-        //this.bibRec.mms_id
         this.mmsID
       );
 
@@ -188,7 +187,6 @@ export class MainComponent implements OnInit, OnDestroy {
 
   // Method to collect all covers currently available for the record
   getCoverOverview() {
-    //console.log("Entering getCoverOverview with IDs");
     this.loading = true;
     this.coverService.getAllCovers(this.bib_ids).subscribe(
       (covers) => {
@@ -213,14 +211,10 @@ export class MainComponent implements OnInit, OnDestroy {
           }
         }
         this.covers_loaded = true;
-        //console.log("Finished loading cover list");
         // Check if record update is needed
         this.checkRecUpdate();
       },
       (err) => {
-        /*this.alert.error(this.translate.instant("Translate.error.get_covers"), {
-          autoClose: false,
-        });*/
         this.covers_loaded = false;
         //console.log("Cover list loading failed");
         this.loading = false;
@@ -237,10 +231,8 @@ export class MainComponent implements OnInit, OnDestroy {
   checkRecUpdate(): void {
     //console.log("Entering checkRecUpdate");
     this.loading = true;
-    //console.log("Alma cover data: ", this.bibCovers.active_IDs);
     let update_rec = false;
     let activated: { [key: string]: string[] } = {};
-    //console.log("Resolver cover data: ", activated);
 
     // Collect activated cover IDs
     for (const source in this.currCovers) {
@@ -257,7 +249,6 @@ export class MainComponent implements OnInit, OnDestroy {
     // Verify LIBISnet cover status
     if ("covers" in this.bibCovers.active_IDs && !("covers" in this.currCovers)) {
       update_rec = true;
-      //console.log("LIBISnet cover deprecated - update needed");
     }
 
     // Verify if list of active IDs matches current activation settings (only sources present in currCovers are taken into account)
@@ -267,14 +258,12 @@ export class MainComponent implements OnInit, OnDestroy {
         // Check if all activated IDs are in list of active IDs
         for (const cover_id of activated[source]) {
           if (!this.bibCovers.active_IDs[source].includes(cover_id)) {
-            //console.log("New external cover detected - update needed: ", cover_id);
             update_rec = true;
           }
         }
         // Check if all active IDs are in the list of activated IDs
         for (const cover_id of this.bibCovers.active_IDs[source]) {
           if (!activated[source].includes(cover_id)) {
-            //console.log("Deprecated external cover detected - update needed: ", cover_id);
             update_rec = true;
           }
         }
@@ -306,13 +295,12 @@ export class MainComponent implements OnInit, OnDestroy {
             this.loading = false;
           },
           () => {
-            //console.log("Finished record update code");
             this.loading = false;         
           }
         );
     }
     else { 
-      //console.log("No record update needed - finished checkrecupdate without further action");
+
       this.loading = false; }
   }
 
@@ -396,20 +384,20 @@ export class MainComponent implements OnInit, OnDestroy {
 
   // Method to delete existing covers (only for local covers)
   deleteCover(id_type: string, id_code: string) {
+    this.loading = true;
     this.coverService.deleteCover(id_type, id_code, this.authToken).subscribe(
       (resp) => {
         this.alert.success(
           this.translate.instant("Translate.msg.delete_cover")
         );
-        delete this.currCovers["covers"];
+        this.getCoverOverview();
+        //delete this.currCovers["covers"];
       },
       (err) => {
         this.alert.error(
           this.translate.instant("Translate.error.delete_cover")
         );
-      },
-      () => {
-        this.getCoverOverview();
+        this.loading = false;
       }
     );
   }

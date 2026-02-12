@@ -1,9 +1,9 @@
 {
    "id": "libis/customcoversservice",
-   "title": "Custom covers service (Beta)",
+   "title": "Custom Covers Service",
    "subtitle": "Collect and load covers",
    "author": "LJ",
-   "description": "A tool to upload and manage covers to/from a custom coverserver. This tool is intended to be used with an external coverserver that allows CRUD actions on covers through an API.",
+   "description": "A tool to upload and manage covers to/from a custom coverserver. This tool is intended to be used with an external coverserver that allows CRUD actions on cover images through an API.",
    "contentSecurity": {
       "connectSrc": [
          "https://*"

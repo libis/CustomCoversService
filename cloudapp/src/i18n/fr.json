@@ -1,6 +1,6 @@
 {
   "Translate": {
-    "welcome": "Bienvenue dans le service d'images de couverture",
+    "welcome": "Bienvenue dans le LIBIS Custom Covers Service",
     "mms_id": "ID MMS",
     "by": "Par",
     "rec_reset": "Nouvelle recherche",
@@ -11,7 +11,7 @@
       "msg": "Cliquez pour sélectionner l'image de couverture:"
     },
     "CZ_unsupported": "L'enregistrement d'une image de couverture n'est (actuellement) pas supporté pour les documents CZ",
-    "cover_disclaimer": "En enregistrant une image, vous confirmez que vous disposez des droits et permissions nécessaires pour partager et utiliser cette image dans un contexte bibliothécaire.",
+    "cover_disclaimer": "En enregistrant une image, vous confirmez que vous disposez des droits et permissions nécessaires pour partager et utiliser cette image dans un contexte de bibliothèque.",
     "upload": "Enregistrer l'image",
     "upload_reset": "Annuler",
     "available_covers": "Images de couverture disponibles:",
