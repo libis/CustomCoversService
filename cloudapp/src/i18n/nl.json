@@ -42,7 +42,7 @@
       "alma_not_found": "Het Alma record kon niet geladen worden - controleer het MMS ID en probeer opnieuw",
       "cover_too_large": "Cover overschrijdt de bestandslimiet (1MB)",
       "get_covers": "Actuele lijst met covers kon niet opgehaald worden",
-      "alma_update": "Alma record update mislukt",
+      "alma_update": "Alma record kon niet geüpdatet worden",
       "no_selection": "Geen bestand geselecteerd",
       "new_cover": "Er is een fout opgetreden bij het uploaden. Probeer opnieuw",
       "delete_cover": "Cover kon niet verwijderd worden"

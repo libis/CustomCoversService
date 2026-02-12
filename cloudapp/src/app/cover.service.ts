@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { catchError, delay, retry, retryWhen, scan } from 'rxjs/operators';
+import { catchError, delay, retry, retryWhen, scan, timeout } from 'rxjs/operators';
 import { BibRec, BibIdentifiers } from './interfaces/bibrec.interface';
 import { Cover } from './models/cover';
 import { Settings } from './models/settings';
@@ -15,7 +15,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class CoverService {
 
   config: Settings = new Settings();
-  inst: { "full": string, "tenant": string, "inst": string } = { "full": "", "tenant": "", "inst": "" };
+  inst: { "full": string, "tenant": string, "inst": string } = { "full": "", "tenant": "", "inst": "" };  
 
   constructor(private restService: CloudAppRestService,
     private configService: CloudAppConfigService,
@@ -132,7 +132,8 @@ export class CoverService {
       'params': {
         'type': id_type,
         'code': id_code
-      }
+      },
+      timeout: 30000
     }
 
     // Return call promise
@@ -155,8 +156,9 @@ export class CoverService {
     const options = {
       'headers': {
         'Authorization': `${authToken}`
-      }
-    }
+      },
+      timeout: 30000
+    };
 
     // Return call promise
     return this.http.post(url, coverData, options);

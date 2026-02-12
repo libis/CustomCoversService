@@ -398,6 +398,9 @@ export class MainComponent implements OnInit, OnDestroy {
           this.translate.instant("Translate.error.delete_cover")
         );
         this.loading = false;
+      },
+      () => {
+        this.loading = false;
       }
     );
   }
